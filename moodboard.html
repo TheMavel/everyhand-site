@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Everyhand — Moodboard &amp; Design-System</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F9;--surface:#FFFFFF;--ink:#0E1116;--ink-2:#2A313B;--slate:#5A6472;--line:#E4E8EE;--line-2:#D6DCE4;--blue:#1E40AF;--blue-deep:#16308C;--blue-bright:#2F6BFF;--blue-tint:#EDF2FF;--silver-1:#E9EBEF;--silver-2:#C6CBD4;--silver-3:#9AA1AD;--skew:-12deg;--shear:-28deg;--font-d:"Space Grotesk",sans-serif;--font-b:"Inter",sans-serif;--font-m:"IBM Plex Mono",monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);line-height:1.6;padding:48px clamp(20px,5vw,72px)}
+h1,h2,h3{font-family:var(--font-d);letter-spacing:-.02em;line-height:1.1}
+.head{max-width:760px;margin-bottom:48px}
+.kicker{font-family:var(--font-m);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.kicker .bars{display:inline-flex;gap:4px}.kicker .bars i{width:16px;height:8px;background:var(--blue);transform:skewX(var(--shear))}.kicker .bars i:nth-child(2){width:10px;opacity:.55}
+.head h1{font-size:clamp(32px,5vw,52px);font-weight:700}
+.head p{color:var(--slate);margin-top:16px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;grid-column:span 12}
+.card h2{font-size:13px;font-family:var(--font-m);letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin-bottom:22px;font-weight:500}
+@media(min-width:880px){.c6{grid-column:span 6}.c4{grid-column:span 4}.c8{grid-column:span 8}}
+/* palette */
+.sw{display:flex;flex-direction:column;gap:0;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.sw div{padding:16px 18px;font-family:var(--font-m);font-size:12px;display:flex;justify-content:space-between}
+.pal{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chiprow{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.color{height:84px;border-radius:8px;border:1px solid rgba(0,0,0,.06);display:flex;align-items:flex-end;padding:10px;font-family:var(--font-m);font-size:11px;color:#fff}
+.color.lt{color:var(--ink)}
+/* type */
+.spec{font-family:var(--font-d)}
+.t-d{font-size:40px;font-weight:700;letter-spacing:-.02em}
+.t-h{font-size:24px;font-weight:600}
+.t-b{font-family:var(--font-b);font-size:16px;color:var(--ink-2);max-width:48ch}
+.t-m{font-family:var(--font-m);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.row{padding:14px 0;border-bottom:1px dashed var(--line)}
+.row small{font-family:var(--font-m);font-size:11px;color:var(--slate);letter-spacing:.1em}
+/* components */
+.btn{display:inline-block;transform:skewX(var(--skew));border-radius:5px;padding:14px 28px;font-family:var(--font-d);font-weight:600;font-size:15px;border:1.5px solid transparent;margin:6px 8px 6px 0}
+.btn>span{display:inline-block;transform:skewX(12deg)}
+.btn-p{background:var(--blue);color:#fff;box-shadow:0 10px 28px -10px rgba(30,64,175,.55)}
+.btn-g{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.chip{font-family:var(--font-m);font-size:12px;padding:8px 16px;background:var(--bg);border:1px solid var(--line);border-radius:4px;transform:skewX(var(--skew));display:inline-block}.chip>span{display:inline-block;transform:skewX(12deg)}
+.logo-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.logo-row .b{display:flex;align-items:center;gap:12px}
+.logo-row b{font-family:var(--font-d);font-weight:700;letter-spacing:.34em}
+.dark{background:var(--ink);border-radius:8px;padding:22px;display:flex;align-items:center;gap:18px}
+.dark b{font-family:var(--font-d);font-weight:700;letter-spacing:.34em;color:#fff}
+/* image prompts */
+.prompt{border-left:3px solid var(--blue);padding:10px 0 10px 16px;margin:14px 0}
+.prompt h4{font-family:var(--font-d);font-size:15px;margin-bottom:4px}
+.prompt p{font-size:13.5px;color:var(--slate)}
+.note{font-size:13px;color:var(--slate);margin-top:10px}
+.princ li{margin:8px 0 8px 18px;font-size:15px;color:var(--ink-2)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="gs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9EBEF"/><stop offset=".5" stop-color="#C6CBD4"/><stop offset="1" stop-color="#9AA1AD"/></linearGradient>
+<g id="m"><path d="M149 0 L599 1 L548 110 L90 110 Z"/><path d="M59 177 L409 177 L354 289 L0 289 Z"/><path d="M24 361 L482 363 L442 472 L84 472 Z"/><path d="M740 0 L660 2 L601 208 L454 208 L415 287 L579 290 L529 472 L609 472 Z"/></g>
+</defs></svg>
+
+<div class="head">
+  <div class="kicker"><span class="bars"><i></i><i></i></span>Everyhand · Brand &amp; Web Design-System</div>
+  <h1>Hell, präzise, robotisch — aber menschlich.</h1>
+  <p>Die visuelle Sprache leitet sich direkt aus dem Logo ab: parallele, nach rechts geneigte Balken. Diese Schräge (−12°) wird zum durchgängigen Gestaltungsprinzip — in Buttons, Chips, Badges und Bildrahmen. Helles Vertrauens-Setting, ein einziger tiefblauer Akzent, viel Weißraum.</p>
+</div>
+
+<div class="grid">
+
+  <div class="card c8">
+    <h2>Logo &amp; Markenzeichen</h2>
+    <div class="logo-row">
+      <div class="b"><svg viewBox="0 0 740 472" width="120" fill="var(--ink)"><use href="#m"/></svg></div>
+      <div class="b"><svg viewBox="0 0 740 472" width="70" fill="url(#gs)"><use href="#m"/></svg><b>EVERYHAND</b></div>
+    </div>
+    <div class="dark" style="margin-top:20px">
+      <svg viewBox="0 0 740 472" width="64" fill="url(#gs)"><use href="#m"/></svg>
+      <b>EVERYHAND</b>
+      <span style="font-family:var(--font-m);color:#8A93A0;font-size:12px;letter-spacing:.2em;margin-left:auto">AI · ROBOTS · REAL IMPACT</span>
+    </div>
+    <p class="note">Das „EH"-Monogramm wird als Vektor neu gezeichnet (scharf, skalierbar) — als Volltonschwarz auf Hell, als Silber-Verlauf auf Dunkel. Der Claim steht in Mono-Versalien mit weitem Sperrsatz.</p>
+  </div>
+
+  <div class="card c4">
+    <h2>Designprinzip: die Schräge</h2>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <span class="chip"><span>Humanoide</span></span>
+      <span class="chip"><span>Roboterhunde</span></span>
+    </div>
+    <a class="btn btn-p" style="margin-top:16px"><span>Pilot anfragen</span></a>
+    <p class="note">Alle Flächen kippen um −12° (Logo-Neigung); der Text darin wird gegengeneigt, bleibt also gerade lesbar. So wirkt die Marke „in Bewegung", ohne unruhig zu werden.</p>
+  </div>
+
+  <div class="card c8">
+    <h2>Farbpalette</h2>
+    <div class="pal">
+      <div class="color" style="background:#0E1116">Ink · #0E1116<span style="margin-left:auto">Text / Dunkelsektionen</span></div>
+      <div class="color" style="background:#1E40AF">Blue · #1E40AF<span style="margin-left:auto">Primär-Akzent</span></div>
+      <div class="color" style="background:#2F6BFF">Bright · #2F6BFF<span style="margin-left:auto">Fokus / Hover</span></div>
+      <div class="color lt" style="background:#F6F7F9">BG · #F6F7F9<span style="margin-left:auto">Seitenhintergrund</span></div>
+      <div class="color lt" style="background:#FFFFFF;border:1px solid #E4E8EE">Surface · #FFFFFF<span style="margin-left:auto">Karten</span></div>
+      <div class="color lt" style="background:linear-gradient(135deg,#E9EBEF,#9AA1AD)">Silber-Verlauf<span style="margin-left:auto">Robotik-Metall</span></div>
+    </div>
+    <p class="note">Hell &amp; vertrauensbildend. Ein einziger gesättigter Blauton trägt alle Call-to-Actions; Silbergrau-Verläufe liefern die „robotische" Materialanmutung ohne Kälte. Kein Schwarz-Weiß-Extrem, keine grellen Sekundärfarben.</p>
+  </div>
+
+  <div class="card c4">
+    <h2>Typografie</h2>
+    <div class="row"><div class="t-m">Space Grotesk</div><div class="t-d">Überall.</div><small>Headlines / Display</small></div>
+    <div class="row"><div class="t-h">Vier Ebenen. Ein Standort.</div><small>Space Grotesk 600 · Subheads</small></div>
+    <div class="row"><div class="t-b">Inter trägt den Fließtext — neutral, exzellent lesbar, modern.</div><small>Inter · Body</small></div>
+    <div class="row" style="border:0"><div class="t-m">PRIVACY-FIRST · 6–8 WOCHEN</div><small>IBM Plex Mono · Labels &amp; Daten</small></div>
+  </div>
+
+  <div class="card c6">
+    <h2>Buttons &amp; Elemente</h2>
+    <a class="btn btn-p"><span>Pilotprojekt anfragen</span></a>
+    <a class="btn btn-g"><span>Was kostet das?</span></a>
+    <div class="chiprow" style="margin-top:14px">
+      <span class="chip"><span>Drohnen</span></span>
+      <span class="chip"><span>Sensorik &amp; KI</span></span>
+      <span class="chip"><span>DSGVO-konform</span></span>
+    </div>
+  </div>
+
+  <div class="card c6">
+    <h2>Bildwelt — Look &amp; Feel</h2>
+    <ul class="princ">
+      <li>Helle, lichtdurchflutete reale Orte (Baumarkt, Messe, Empfang)</li>
+      <li>Schlanke weiß-silberne Roboter mit dezenten blauen Lichtakzenten</li>
+      <li>Echte, entspannte Menschen — Roboter als normaler Kollege, keine Angst, keine Dystopie</li>
+      <li>Editorial-Fotografie-Stil, kein „CGI-Slop", keine sterilen Studio-Renders</li>
+      <li>Keine sichtbaren Hersteller-Logos (herstellerneutral)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Bild-Prompts (OpenAI Images · JSON-Context) — fertig im Skript hinterlegt</h2>
+    <div class="prompt"><h4>hero.png — Hero</h4><p>Heller moderner Baumarkt, humanoider Service-Roboter weist einer lächelnden Kundin den Weg, Sonnenlicht, viel Negativraum links für die Headline.</p></div>
+    <div class="prompt"><h4>team-mensch-roboter.png — Mensch &amp; Roboter</h4><p>Mitarbeiterin in der Kaffeepause, entspannt neben einem weißen Quadruped — Partnerschaft, kein Ersatz.</p></div>
+    <div class="prompt"><h4>quadruped-baumarkt.png · humanoid-messe.png · drone-event.png · sensorik-dashboard.png</h4><p>Quadruped führt Kunden durch den Gang · Humanoid empfängt Messebesucher · Drohne über Open-Air-Festival · helles Control-Room-Dashboard mit blauer Heatmap.</p></div>
+    <p class="note">Alle Prompts nutzen ein gemeinsames JSON-Brand-Profil (Stil, Licht, Farbe, Roboter-, Personen- und Negativ-Regeln) für maximal prompt-treue, fotorealistische Ergebnisse. Siehe <b>tools/generate-images.mjs</b>.</p>
+  </div>
+
+</div>
+</body>
+</html>

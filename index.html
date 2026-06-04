@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everyhand — Service-Roboter für Baumarkt, Handel &amp; Events | Beratung, Pilotprojekte, Betrieb</title>
+<meta name="description" content="Everyhand macht Standorte robot-ready: herstellerneutrale Beratung, Pilotprojekte ab 2.900 €, Roboterhunde, Humanoide & Drohnen im laufenden Betrieb. Privacy-first, DSGVO-konform, messbarer ROI. Düsseldorf / Köln.">
+<meta name="keywords" content="Service-Roboter, Roboter Einzelhandel, Roboter Baumarkt, Humanoider Roboter mieten, Roboter Event, Roboter Messe, Robotik Beratung, Roboter Kosten, Robot as a Service, RaaS Deutschland, Roboterhund Unternehmen">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://everyhand.de/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Everyhand — Eine helfende Hand. Überall.">
+<meta property="og:description" content="Wir machen Ihren Standort bereit für KI-Roboter — Beratung, Pilotprojekte und laufender Betrieb. Herstellerneutral, privacy-first, mit messbarem ROI.">
+<meta property="og:url" content="https://everyhand.de/">
+<meta property="og:image" content="https://everyhand.de/img/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F6F7F9">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Everyhand",
+  "slogan": "Eine helfende Hand. Überall.",
+  "description": "Herstellerneutraler Dienstleister für Standortintelligenz, Robotik-Integration und KI-gestützte Besucherführung. Beratung, Pilotprojekte und Betrieb von Service-Robotern in Handel, Messe und Event.",
+  "url": "https://everyhand.de",
+  "logo": "https://everyhand.de/img/logo.png",
+  "areaServed": ["Düsseldorf","Köln","Nordrhein-Westfalen","Deutschland","DACH"],
+  "knowsAbout": ["Service-Robotik","Humanoide Roboter","Quadruped-Roboter","Crowd-Analytics","KI-Integration","Standortdaten"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Was kostet ein Service-Roboter im Einzelhandel?","acceptedAnswer":{"@type":"Answer","text":"Bei Everyhand starten Pilotprojekte ab 2.900 € (EventFlow Sensor-Pilot) bzw. 6.900 € (Baumarkt-Innovationspilot, 6–8 Wochen). Der laufende Betrieb liegt je nach Paket zwischen 699 € und 7.900 € pro Monat — inklusive Hardware, Monitoring, Analytics und SLA."}},
+    {"@type":"Question","name":"Nehmen Roboter Arbeitsplätze weg?","acceptedAnswer":{"@type":"Answer","text":"Nein — unser Modell ist Entlastung statt Ersatz. Der Roboter übernimmt wiederholbare Fragen, die Fachberatung bleibt beim Menschen, und bei Spezialfällen ruft der Roboter aktiv Personal hinzu."}},
+    {"@type":"Question","name":"Wie läuft ein Pilotprojekt ab?","acceptedAnswer":{"@type":"Answer","text":"Ein Pilot dauert 6–8 Wochen: Woche 1 Standortanalyse, Woche 2 Setup, Woche 3–6 Pilotbetrieb mit echten Kunden, Woche 7–8 Auswertung mit ROI-Schätzung und Rollout-Plan. Erfolgskriterien werden vorab definiert."}},
+    {"@type":"Question","name":"Wie steht es um Datenschutz und DSGVO?","acceptedAnswer":{"@type":"Answer","text":"Privacy-first ist Architekturprinzip: keine Gesichtserkennung, keine biometrische Identifikation, keine dauerhaften Bewegungsprofile. Aggregierte Daten, Edge-Verarbeitung, transparente Beschilderung, klare Löschfristen."}},
+    {"@type":"Question","name":"Mit welchen Robotern arbeitet Everyhand?","acceptedAnswer":{"@type":"Answer","text":"Wir sind herstellerneutral: Quadrupeds (Roboterhunde) als zuverlässiger Anker, Humanoide als Guide und Markenbotschafter, Drohnen für Vermessung und Events — plus Sensorik und KI-Terminals."}},
+    {"@type":"Question","name":"Was passiert, wenn der Pilot die Erwartungen nicht erfüllt?","acceptedAnswer":{"@type":"Answer","text":"Dann endet das Projekt mit der Auswertung — ohne Abo-Verpflichtung. Wir definieren vorab harte Erfolgskennzahlen und verkaufen das Folgeabo nur, wenn die Daten den ROI belegen."}}
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#F6F7F9; --surface:#FFFFFF; --ink:#0E1116; --ink-2:#2A313B; --slate:#5A6472;
+  --line:#E4E8EE; --line-2:#D6DCE4;
+  --blue:#1E40AF; --blue-deep:#16308C; --blue-bright:#2F6BFF; --blue-tint:#EDF2FF;
+  --silver-1:#E9EBEF; --silver-2:#C6CBD4; --silver-3:#9AA1AD;
+  --skew:-12deg; --shear:-28deg;
+  --font-d:"Space Grotesk",sans-serif; --font-b:"Inter",sans-serif; --font-m:"IBM Plex Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--blue);color:#fff}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(20px,4vw,32px)}
+section{padding-block:clamp(76px,9vw,132px);position:relative}
+h1,h2,h3{font-family:var(--font-d);font-weight:600;letter-spacing:-0.02em;line-height:1.08;text-wrap:balance}
+h2{font-size:clamp(30px,4vw,46px);max-width:21ch}
+p{max-width:62ch}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-m);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:22px;font-weight:500}
+.eyebrow .bars{display:inline-flex;gap:4px}
+.eyebrow .bars i{width:16px;height:8px;background:var(--blue);transform:skewX(var(--shear));border-radius:1px}
+.eyebrow .bars i:nth-child(2){width:10px;opacity:.55}
+.sec-head{margin-bottom:clamp(40px,5vw,64px)}
+.sec-head .lead{margin-top:20px;color:var(--slate);font-size:18px;max-width:58ch}
+.btn{display:inline-block;transform:skewX(var(--skew));border-radius:5px;padding:15px 30px;font-family:var(--font-d);font-weight:600;font-size:15.5px;letter-spacing:.01em;transition:.22s ease;cursor:pointer;border:1.5px solid transparent;white-space:nowrap}
+.btn>span{display:inline-block;transform:skewX(calc(var(--skew)*-1))}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 28px -10px rgba(30,64,175,.55)}
+.btn-primary:hover{background:var(--blue-deep);transform:skewX(var(--skew)) translateY(-2px);box-shadow:0 16px 34px -10px rgba(30,64,175,.6)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn-ghost:hover{border-color:var(--ink);transform:skewX(var(--skew)) translateY(-2px)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+header{position:sticky;top:0;z-index:50;background:rgba(246,247,249,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:28px;height:72px}
+.brand{display:flex;align-items:center;gap:13px;margin-right:auto}
+.brand svg{height:26px;width:auto}
+.brand b{font-family:var(--font-d);font-weight:700;letter-spacing:.34em;font-size:14.5px;padding-left:.34em}
+.nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:500;color:var(--ink-2)}
+.nav-links a{position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--blue);transform:skewX(var(--shear));transition:.2s}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.lang{display:flex;border:1.5px solid var(--line-2);border-radius:5px;overflow:hidden;font-family:var(--font-m);font-size:12px;font-weight:500}
+.lang button{padding:7px 11px;background:transparent;border:0;cursor:pointer;color:var(--slate);font:inherit}
+.lang button.on{background:var(--ink);color:#fff}
+.nav .btn{padding:11px 22px;font-size:14px}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transform:skewX(var(--shear))}
+.hero{padding-block:clamp(64px,7vw,110px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(40px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(42px,5.6vw,72px);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--blue);white-space:nowrap}
+.hero .tagline{font-family:var(--font-m);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-bottom:26px;display:flex;align-items:center;gap:12px}
+.hero .tagline::before{content:"";width:34px;height:10px;background:linear-gradient(135deg,var(--silver-2),var(--silver-3));transform:skewX(var(--shear))}
+.hero .sub{margin-top:28px;font-size:18.5px;color:var(--slate);max-width:52ch}
+.hero .btn-row{margin-top:38px}
+.hero-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.chip{font-family:var(--font-m);font-size:12.5px;letter-spacing:.06em;padding:8px 16px;background:var(--surface);border:1px solid var(--line);border-radius:4px;transform:skewX(var(--skew));color:var(--ink-2)}
+.chip>span{display:inline-block;transform:skewX(calc(var(--skew)*-1))}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 90% 70% at 30% 20%,rgba(0,0,0,.5),transparent 70%);mask-image:radial-gradient(ellipse 90% 70% at 30% 20%,rgba(0,0,0,.5),transparent 70%);pointer-events:none}
+.media{position:relative;aspect-ratio:4/3.1;clip-path:polygon(9% 0,100% 0,100% 88%,91% 100%,0 100%,0 12%);background:linear-gradient(150deg,#EDEFF3,#DDE1E8 55%,#CDD3DC);overflow:hidden;box-shadow:0 30px 60px -28px rgba(14,17,22,.35)}
+.media img{width:100%;height:100%;object-fit:cover}
+.media .ph{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+.media.noimg .ph{display:flex}
+.media.noimg img{display:none}
+.media .ph svg{width:46%;height:auto;opacity:.9}
+.media .ph small{font-family:var(--font-m);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
+.media .tag{position:absolute;left:0;bottom:0;background:rgba(14,17,22,.85);color:#fff;font-family:var(--font-m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px 10px 14px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,0 100%);backdrop-filter:blur(4px)}
+.strip{border-block:1px solid var(--line);background:var(--surface)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:34px 28px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat b{font-family:var(--font-d);font-size:clamp(26px,2.6vw,34px);font-weight:700;display:block;letter-spacing:-.02em}
+.stat b sup{font-size:.55em;color:var(--blue)}
+.stat span{font-size:13.5px;color:var(--slate);display:block;margin-top:6px;line-height:1.45}
+.human{background:var(--surface);border-bottom:1px solid var(--line)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(44px,6vw,84px);align-items:center}
+.facts{display:grid;gap:0;border-top:1px solid var(--line);margin-top:36px}
+.fact{display:grid;grid-template-columns:96px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.fact b{font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--blue);letter-spacing:-.02em;text-align:right}
+.fact span{color:var(--slate);font-size:15px}
+.pledge{margin-top:34px;display:grid;gap:14px}
+.pledge li{list-style:none;display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:var(--ink-2)}
+.pledge li::before{content:"";flex:0 0 14px;height:8px;margin-top:8px;background:var(--blue);transform:skewX(var(--shear))}
+.layers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:layer}
+.layer{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:30px 26px 28px;position:relative;transition:.25s;counter-increment:layer;overflow:hidden}
+.layer::before{content:"0" counter(layer);font-family:var(--font-m);font-size:12px;color:var(--blue);letter-spacing:.15em}
+.layer::after{content:"";position:absolute;top:0;left:0;width:46px;height:5px;background:var(--blue);transform:skewX(var(--shear)) translateX(-6px);opacity:0;transition:.25s}
+.layer:hover{transform:translateY(-5px);border-color:var(--blue);box-shadow:0 24px 44px -22px rgba(30,64,175,.3)}
+.layer:hover::after{opacity:1}
+.layer h3{font-size:19px;margin:14px 0 10px}
+.layer p{font-size:14.5px;color:var(--slate)}
+.fleet{display:grid;gap:clamp(56px,6vw,84px)}
+.unit{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(36px,5vw,72px);align-items:center}
+.unit:nth-child(even) .u-media{order:2}
+.u-kicker{font-family:var(--font-m);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.u-kicker b{color:var(--blue);font-weight:500}
+.unit h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:14px}
+.unit .u-desc{color:var(--slate);font-size:16px}
+.uc{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+.uc li{list-style:none;font-size:14.5px;color:var(--ink-2);display:flex;gap:10px;align-items:baseline}
+.uc li::before{content:"▰";color:var(--blue);font-size:9px;transform:translateY(-2px)}
+.u-price{margin-top:26px;font-family:var(--font-m);font-size:13px;color:var(--ink-2);background:var(--blue-tint);border:1px solid #D8E2FF;display:inline-block;padding:9px 16px;border-radius:4px;transform:skewX(var(--skew))}
+.u-price>span{display:inline-block;transform:skewX(calc(var(--skew)*-1))}
+.offers-bg{background:linear-gradient(180deg,var(--surface),var(--bg));border-block:1px solid var(--line)}
+.offers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:30px 26px;display:flex;flex-direction:column;transition:.25s;position:relative}
+.offer:hover{transform:translateY(-5px);box-shadow:0 24px 44px -22px rgba(14,17,22,.22);border-color:var(--line-2)}
+.offer.hot{border-color:var(--blue);box-shadow:0 18px 40px -20px rgba(30,64,175,.35)}
+.offer .flag{position:absolute;top:-12px;left:24px;background:var(--blue);color:#fff;font-family:var(--font-m);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;transform:skewX(var(--skew));border-radius:3px}
+.offer .flag>span{display:inline-block;transform:skewX(calc(var(--skew)*-1))}
+.offer h3{font-size:18.5px;min-height:2.4em}
+.offer .price{font-family:var(--font-d);font-size:26px;font-weight:700;margin:14px 0 4px;letter-spacing:-.02em}
+.offer .per{font-size:12.5px;color:var(--slate);font-family:var(--font-m);margin-bottom:16px}
+.offer p{font-size:14px;color:var(--slate);flex:1}
+.offer .more{margin-top:18px;font-size:13.5px;font-weight:600;color:var(--blue)}
+.abo-note{margin-top:34px;background:var(--ink);color:#E8EAEE;border-radius:8px;padding:26px 30px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.abo-note p{font-size:15px;max-width:none;color:#C9CED6}
+.abo-note p b{color:#fff}
+.road{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
+.road::before{content:"";position:absolute;top:7px;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,var(--line-2) 0 14px,transparent 14px 22px)}
+.mile{padding-top:34px;position:relative}
+.mile::before{content:"";position:absolute;top:0;left:0;width:16px;height:16px;background:var(--surface);border:3px solid var(--silver-3);transform:skewX(var(--shear));border-radius:2px}
+.mile.now::before{background:var(--blue);border-color:var(--blue)}
+.mile .when{font-family:var(--font-m);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500}
+.mile h3{font-size:18px;margin:10px 0 8px}
+.mile p{font-size:14px;color:var(--slate)}
+.mile.now .when::after{content:"●";margin-left:8px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.consult{background:var(--ink);color:#EDEFF3;clip-path:polygon(0 0,100% 3.5%,100% 100%,0 100%)}
+.consult h2{color:#fff}
+.consult .lead{color:#A9B0BB}
+.consult .split{align-items:start}
+.steps{display:grid;gap:0;border-top:1px solid #262C35;margin-top:8px}
+.step{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid #262C35}
+.step i{font-family:var(--font-m);font-style:normal;font-size:13px;color:var(--blue-bright);padding-top:3px}
+.step h3{font-size:17.5px;color:#fff;margin-bottom:6px}
+.step p{font-size:14.5px;color:#A9B0BB}
+.form{background:#161A21;border:1px solid #262C35;border-radius:10px;padding:34px}
+.form h3{font-size:20px;color:#fff;margin-bottom:6px}
+.form .fnote{font-size:13.5px;color:#8A93A0;margin-bottom:24px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--font-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A93A0}
+.field input,.field select,.field textarea{background:#0E1116;border:1px solid #2C333E;border-radius:6px;padding:13px 14px;color:#fff;font:inherit;font-size:15px;transition:.2s;width:100%}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue-bright);box-shadow:0 0 0 3px rgba(47,107,255,.18)}
+.form .btn{width:100%;margin-top:22px;border:0}
+.form .priv{font-size:12px;color:#6E7682;margin-top:14px;text-align:center}
+.faq{max-width:840px;margin-inline:auto}
+.qa{border-bottom:1px solid var(--line-2)}
+.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 4px;font-family:var(--font-d);font-weight:600;font-size:17.5px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-family:var(--font-m);font-size:22px;color:var(--blue);transition:.25s;flex:0 0 auto}
+.qa[open] summary::after{transform:rotate(45deg)}
+.qa .a{padding:0 4px 26px;color:var(--slate);font-size:15.5px;max-width:64ch}
+footer{background:var(--ink);color:#9AA1AD;padding:64px 0 36px;font-size:14px}
+.f-grid2{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding-bottom:44px;border-bottom:1px solid #262C35}
+footer .brand b{color:#fff}
+footer h4{font-family:var(--font-m);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#6E7682;margin-bottom:16px;font-weight:500}
+footer ul{list-style:none;display:grid;gap:10px}
+footer a:hover{color:#fff}
+.f-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:12.5px;color:#6E7682}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1020px){
+  .layers,.offers{grid-template-columns:1fr 1fr}
+  .road{grid-template-columns:1fr 1fr;gap:36px 18px}
+  .road::before{display:none}
+  .strip .wrap{grid-template-columns:1fr 1fr}
+  .stat{border-left:0;border-top:1px solid var(--line)}
+  .nav-links{display:none}
+}
+@media(max-width:780px){
+  .hero-grid,.split,.unit{grid-template-columns:1fr}
+  .unit:nth-child(even) .u-media{order:0}
+  .layers,.offers,.road,.f-grid2{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .uc{grid-template-columns:1fr}
+  .nav .btn{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--surface);padding:24px clamp(20px,4vw,32px);border-bottom:1px solid var(--line);gap:18px}
+  .consult{clip-path:polygon(0 0,100% 1.2%,100% 100%,0 100%)}
+}
+</style>
+</head>
+<body>
+<!-- ======================= SVG DEFS ======================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E9EBEF"/><stop offset=".5" stop-color="#C6CBD4"/><stop offset="1" stop-color="#9AA1AD"/>
+    </linearGradient>
+    <g id="eh-mark">
+      <path d="M149 0 L599 1 L548 110 L90 110 Z"/>
+      <path d="M59 177 L409 177 L354 289 L0 289 Z"/>
+      <path d="M24 361 L482 363 L442 472 L84 472 Z"/>
+      <path d="M740 0 L660 2 L601 208 L454 208 L415 287 L579 290 L529 472 L609 472 Z"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- ======================= HEADER ======================= -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Everyhand Startseite">
+      <svg viewBox="0 0 740 472" fill="#0E1116"><use href="#eh-mark"/></svg>
+      <b>EVERYHAND</b>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#menschen" data-i18n="nav.human">Mensch &amp; Roboter</a>
+      <a href="#system" data-i18n="nav.system">System</a>
+      <a href="#flotte" data-i18n="nav.fleet">Flotte</a>
+      <a href="#angebote" data-i18n="nav.offers">Angebote &amp; Preise</a>
+      <a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Sprache">
+      <button id="lang-de" class="on" onclick="setLang('de')">DE</button>
+      <button id="lang-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a class="btn btn-primary" href="#pilot"><span data-i18n="nav.cta">Pilot anfragen</span></a>
+    <button class="burger" aria-label="Menü" onclick="document.getElementById('navlinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="hero">
+  <div class="bg-grid"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="tagline" data-i18n="hero.tag">AI · Robots · Real Impact</div>
+      <h1 data-i18n="hero.h1">Eine helfende Hand.<br><em>Überall.</em></h1>
+      <p class="sub" data-i18n="hero.sub">Everyhand macht Ihren Standort bereit für KI-Roboter — von der ersten Beratung über das Pilotprojekt bis zum laufenden Betrieb. Herstellerneutral, privacy-first und mit einem ROI, den Sie in Ihrer eigenen GuV wiederfinden.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#pilot"><span data-i18n="hero.cta1">Pilotprojekt anfragen</span></a>
+        <a class="btn btn-ghost" href="#angebote"><span data-i18n="hero.cta2">Was kostet das?</span></a>
+      </div>
+      <div class="hero-chips">
+        <div class="chip"><span data-i18n="chip.1">Humanoide</span></div>
+        <div class="chip"><span data-i18n="chip.2">Roboterhunde</span></div>
+        <div class="chip"><span data-i18n="chip.3">Drohnen</span></div>
+        <div class="chip"><span data-i18n="chip.4">Sensorik &amp; KI</span></div>
+      </div>
+    </div>
+    <div class="media" id="m-hero">
+      <img src="img/hero.png" alt="Everyhand Service-Roboter begrüßt Kundin in einem hellen, modernen Markt" onerror="this.parentElement.classList.add('noimg')">
+      <div class="ph">
+        <svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg>
+        <small data-i18n="ph">Visual folgt — img/hero.png</small>
+      </div>
+      <div class="tag" data-i18n="hero.imgtag">Im Einsatz · Retail Guide</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= STATS ======================= -->
+<div class="strip">
+  <div class="wrap">
+    <div class="stat rv"><b>−90<sup>%</sup></b><span data-i18n="stat.1">Preisverfall bei Humanoiden seit 2023 — der Engpass ist nicht mehr die Maschine, sondern der Ort</span></div>
+    <div class="stat rv"><b>6–8 <sup data-i18n="stat.2w">Wo.</sup></b><span data-i18n="stat.2">vom Erstgespräch zum messbaren Datenbeweis am eigenen Standort</span></div>
+    <div class="stat rv"><b>2.900<sup>€</sup></b><span data-i18n="stat.3">Einstieg in ein Pilotprojekt — testbar statt Großinvestition</span></div>
+    <div class="stat rv"><b>100<sup>%</sup></b><span data-i18n="stat.4">privacy-first: keine Gesichtserkennung, keine biometrische Identifikation</span></div>
+  </div>
+</div>
+
+<!-- ======================= MENSCH & ROBOTER ======================= -->
+<section class="human" id="menschen">
+  <div class="wrap split">
+    <div class="rv">
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="hum.eye">Mensch im Mittelpunkt</span></div>
+      <h2 data-i18n="hum.h2">Wir ersetzen keine Menschen. Wir geben ihnen Zeit zurück.</h2>
+      <p class="lead" style="margin-top:20px;color:var(--slate)" data-i18n="hum.p1">Dem deutschen Handel fehlen die Hände — nicht die Aufgaben. Unsere Roboter übernehmen die hundertste Wegbeschreibung und das Zählen an der Tür, damit Ihr Team das tut, was nur Menschen können: beraten, zuhören, Probleme lösen.</p>
+      <p style="margin-top:16px;color:var(--slate);font-size:15.5px" data-i18n="hum.p2">Und die Geschichte der Automatisierung zeigt (Jevons-Paradox): Wird eine Leistung günstiger und besser, steigt die Nachfrage nach ihr — und mit ihr entstehen neue Aufgaben und Berufe rund um Betrieb, Daten und Kundenerlebnis.</p>
+      <ul class="pledge">
+        <li data-i18n="hum.l1">Der Roboter übernimmt wiederholbare Fragen — die Fachberatung bleibt beim Menschen.</li>
+        <li data-i18n="hum.l2">Bei Spezialfällen ruft der Roboter aktiv Ihr Personal hinzu, statt es zu verdrängen.</li>
+        <li data-i18n="hum.l3">Ziel jedes Projekts ist Entlastung und Umsatz — nie Personalabbau.</li>
+      </ul>
+    </div>
+    <div class="rv">
+      <div class="media" id="m-team">
+        <img src="img/team-mensch-roboter.png" alt="Mitarbeiterin im Baumarkt arbeitet entspannt neben einem Assistenz-Roboter" onerror="this.parentElement.classList.add('noimg')">
+        <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small data-i18n="ph2">Visual folgt — img/team-mensch-roboter.png</small></div>
+        <div class="tag" data-i18n="hum.imgtag">Partner, kein Ersatz</div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>15.754</b><span data-i18n="hum.f1">unbesetzte Ausbildungsplätze im Einzelhandel allein 2024 (KOFA/IfM)</span></div>
+        <div class="fact"><b>40 %</b><span data-i18n="hum.f2">der Unternehmen finden trotz Konjunkturschwäche kein qualifiziertes Personal</span></div>
+        <div class="fact"><b>20–30 %</b><span data-i18n="hum.f3">der Gesamtkosten im Handel entfallen auf Personal — Entlastung wirkt direkt (HDE)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SYSTEM ======================= -->
+<section id="system">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="sys.eye">Das System</span></div>
+      <h2 data-i18n="sys.h2">Vier Ebenen. Ein robot-ready Standort.</h2>
+      <p class="lead" data-i18n="sys.lead">Ein Roboter allein nützt nichts — er braucht einen Ort, der ihn versteht. Wir liefern die Intelligenz unter der Maschine: Die ersten drei Ebenen sind das Produkt, die vierte ist die austauschbare Oberfläche.</p>
+    </div>
+    <div class="layers">
+      <div class="layer rv"><h3 data-i18n="sys.1h">Standortdaten</h3><p data-i18n="sys.1p">Digitale Karte Ihres Orts: Zonen, Wege, Produktstandorte, sichere Routen, Ladepunkte — das Fundament jedes Einsatzes.</p></div>
+      <div class="layer rv"><h3 data-i18n="sys.2h">Sensorik — privacy-first</h3><p data-i18n="sys.2p">LiDAR, Radar &amp; Zähler liefern anonyme Bewegungs- und Dichtedaten mit über 99 % Genauigkeit. Keine Kameras nötig, keine Gesichter.</p></div>
+      <div class="layer rv"><h3 data-i18n="sys.3h">KI-Entscheidungslogik</h3><p data-i18n="sys.3p">Standortwissen trifft Live-Daten: Fragen beantworten, Wege führen, Engpässe erkennen, Personal hinzuziehen — modellneutral.</p></div>
+      <div class="layer rv"><h3 data-i18n="sys.4h">Roboter &amp; Interfaces</h3><p data-i18n="sys.4p">Humanoid, Quadruped, Drohne, Terminal oder Dashboard — wir wählen herstellerneutral, was an Ihrem Standort wirkt.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FLOTTE ======================= -->
+<section id="flotte" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="fl.eye">Die Flotte</span></div>
+      <h2 data-i18n="fl.h2">Echte Roboter. Echte Aufgaben.</h2>
+      <p class="lead" data-i18n="fl.lead">Keine fahrenden Tablets: Wir setzen auf Geräte mit Präsenz und Wirkung — jedes mit klarer Rolle und belegten Use Cases.</p>
+    </div>
+    <div class="fleet">
+
+      <article class="unit rv">
+        <div class="media u-media" id="m-quad">
+          <img src="img/quadruped-baumarkt.png" alt="Quadruped Roboterhund führt einen Kunden durch einen hellen Baumarkt-Gang" onerror="this.parentElement.classList.add('noimg')">
+          <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small>img/quadruped-baumarkt.png</small></div>
+          <div class="tag" data-i18n="fl.1tag">Quadruped · Baumarkt</div>
+        </div>
+        <div>
+          <div class="u-kicker"><b>01</b><span data-i18n="fl.1k">Quadruped — der Anker</span></div>
+          <h3 data-i18n="fl.1h">Der zuverlässige Erste auf der Fläche.</h3>
+          <p class="u-desc" data-i18n="fl.1p">Roboterhunde sind die ausgereifteste Plattform am Markt — robust, sicher und sofort einsatzbereit. Mit ihnen starten wir jedes Deployment, denn der erste Eindruck entscheidet über das ganze Projekt.</p>
+          <ul class="uc">
+            <li data-i18n="fl.1u1">Kunden führen: „Wo finde ich …?“</li>
+            <li data-i18n="fl.1u2">Produktfinder mit Standortwissen</li>
+            <li data-i18n="fl.1u3">Begrüßung &amp; Aktionsflächen</li>
+            <li data-i18n="fl.1u4">Rundgänge außerhalb der Öffnungszeiten</li>
+          </ul>
+          <div class="u-price"><span data-i18n="fl.1pr">Im Pilot ab 6.900 € · Betrieb ab 1.900 €/Monat</span></div>
+        </div>
+      </article>
+
+      <article class="unit rv">
+        <div class="media u-media" id="m-huma">
+          <img src="img/humanoid-messe.png" alt="Humanoider Roboter empfängt Besucher an einem Messestand" onerror="this.parentElement.classList.add('noimg')">
+          <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small>img/humanoid-messe.png</small></div>
+          <div class="tag" data-i18n="fl.2tag">Humanoid · Messe &amp; Empfang</div>
+        </div>
+        <div>
+          <div class="u-kicker"><b>02</b><span data-i18n="fl.2k">Humanoid — der Markenbotschafter</span></div>
+          <h3 data-i18n="fl.2h">Der Auftritt, über den alle sprechen.</h3>
+          <p class="u-desc" data-i18n="fl.2p">Ein humanoider Guide zieht Frequenz, Presse und Aufmerksamkeit — und beantwortet dabei mehrsprachig echte Besucherfragen. Auf der Expo 2025 in Osaka bereits im Live-Betrieb als Guide bewiesen.</p>
+          <ul class="uc">
+            <li data-i18n="fl.2u1">Messe-Concierge &amp; Besucherführung</li>
+            <li data-i18n="fl.2u2">Empfang in Showroom &amp; Filiale</li>
+            <li data-i18n="fl.2u3">Produkt- &amp; Angebotspräsentation</li>
+            <li data-i18n="fl.2u4">PR-Momente &amp; Markeninszenierung</li>
+          </ul>
+          <div class="u-price"><span data-i18n="fl.2pr">Messe-Concierge ab 4.900 € · Premium-Abo bis 7.900 €/Monat</span></div>
+        </div>
+      </article>
+
+      <article class="unit rv">
+        <div class="media u-media" id="m-drone">
+          <img src="img/drone-event.png" alt="Drohne über einem Eventgelände bei Tageslicht zur anonymen Besucherstrom-Analyse" onerror="this.parentElement.classList.add('noimg')">
+          <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small>img/drone-event.png</small></div>
+          <div class="tag" data-i18n="fl.3tag">Drohne · Event &amp; Mapping</div>
+        </div>
+        <div>
+          <div class="u-kicker"><b>03</b><span data-i18n="fl.3k">Drohne — der Überblick</span></div>
+          <h3 data-i18n="fl.3h">Sieht, was am Boden niemand sieht.</h3>
+          <p class="u-desc" data-i18n="fl.3p">Für Events und große Flächen: 3D-Vermessung des Geländes, anonyme Crowd-Flow-Daten in Echtzeit und ein Show-Element, das Besucher nicht vergessen.</p>
+          <ul class="uc">
+            <li data-i18n="fl.3u1">Crowd-Flow &amp; Engpass-Erkennung</li>
+            <li data-i18n="fl.3u2">3D-Vermessung für die Standortkarte</li>
+            <li data-i18n="fl.3u3">Lage-Überblick für Veranstalter</li>
+            <li data-i18n="fl.3u4">Inszenierung &amp; Eröffnungsmomente</li>
+          </ul>
+          <div class="u-price"><span data-i18n="fl.3pr">EventFlow-Pilot ab 2.900 € · Event-Pakete bis 59.000 €</span></div>
+        </div>
+      </article>
+
+      <article class="unit rv">
+        <div class="media u-media" id="m-sens">
+          <img src="img/sensorik-dashboard.png" alt="Helles Control-Room-Dashboard mit anonymen Besucherstrom-Heatmaps" onerror="this.parentElement.classList.add('noimg')">
+          <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small>img/sensorik-dashboard.png</small></div>
+          <div class="tag" data-i18n="fl.4tag">Sensorik · Live-Dashboard</div>
+        </div>
+        <div>
+          <div class="u-kicker"><b>04</b><span data-i18n="fl.4k">Sensorik &amp; Dashboard — das Nervensystem</span></div>
+          <h3 data-i18n="fl.4h">Ihr Standort, endlich messbar.</h3>
+          <p class="u-desc" data-i18n="fl.4p">Eine Website weiß, wo Besucher klicken — Ihr Standort jetzt auch: Frequenz, Laufwege, Verweilzonen und Engpässe als Live-Dashboard und Report. Vollständig anonym, DSGVO-konform.</p>
+          <ul class="uc">
+            <li data-i18n="fl.4u1">Heatmaps &amp; Frequenzanalyse</li>
+            <li data-i18n="fl.4u2">Ampellogik &amp; Warnstufen live</li>
+            <li data-i18n="fl.4u3">Häufigste Kundenfragen als Report</li>
+            <li data-i18n="fl.4u4">Auch ohne Roboter buchbar</li>
+          </ul>
+          <div class="u-price"><span data-i18n="fl.4pr">Sensorik-Abo ab 499 €/Monat — der risikofreie Einstieg</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ANGEBOTE ======================= -->
+<section class="offers-bg" id="angebote">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="of.eye">Angebote &amp; Preise</span></div>
+      <h2 data-i18n="of.h2">Testbar statt Großinvestition.</h2>
+      <p class="lead" data-i18n="of.lead">Jedes Projekt beginnt mit klaren Erfolgskriterien und einem festen Preis. Ein Folgeabo gibt es nur, wenn die Daten den Nutzen belegen — das ist unser Pricing-Grundsatz.</p>
+    </div>
+    <div class="offers">
+      <div class="offer rv">
+        <h3 data-i18n="of.1h">Robot-Ready Standortanalyse</h3>
+        <div class="price">1.500–3.500 €</div><div class="per" data-i18n="of.1per">einmalig · der Einstieg</div>
+        <p data-i18n="of.1p">Begehung, Use-Case-Check und ROI-Schätzung: Kann Ihr Standort Roboter sinnvoll einsetzen — und was würde es bringen? Klare Empfehlung statt Verkaufsfolie.</p>
+        <a class="more" href="#pilot" data-i18n="of.more">Anfragen →</a>
+      </div>
+      <div class="offer hot rv">
+        <div class="flag"><span data-i18n="of.flag">Beliebt zum Start</span></div>
+        <h3 data-i18n="of.2h">Baumarkt-Innovationspilot</h3>
+        <div class="price">ab 6.900 €</div><div class="per" data-i18n="of.2per">6–8 Wochen · inkl. Roboter</div>
+        <p data-i18n="of.2p">Der erste robot-ready Markt Ihrer Region: Roboter-Guide auf der Fläche, Messung echter Kundeninteraktionen, Auswertung mit ROI-Nachweis, Case Study und Presse-Moment.</p>
+        <a class="more" href="#pilot" data-i18n="of.more2">Pilot-Platz anfragen →</a>
+      </div>
+      <div class="offer rv">
+        <h3 data-i18n="of.3h">Messe-Concierge</h3>
+        <div class="price">4.900–14.900 €</div><div class="per" data-i18n="of.3per">pro Veranstaltung</div>
+        <p data-i18n="of.3p">KI-Guide für Besucherführung und Standaktivierung: mehrsprachig, mit Hallenwissen und Auswertung der häufigsten Besucherfragen für Ihr Follow-up.</p>
+        <a class="more" href="#pilot" data-i18n="of.more3">Anfragen →</a>
+      </div>
+      <div class="offer rv">
+        <h3 data-i18n="of.4h">EventFlow Sensor-Pilot</h3>
+        <div class="price">2.900–4.900 €</div><div class="per" data-i18n="of.4per">pro Event · ohne Roboter</div>
+        <p data-i18n="of.4p">Anonyme Echtzeitdaten zu Besucherströmen: Dichte-Ampel für kritische Zonen, Peak-Analyse und Kurzreport — die risikofreie Basis für alles Weitere.</p>
+        <a class="more" href="#pilot" data-i18n="of.more4">Anfragen →</a>
+      </div>
+    </div>
+    <div class="abo-note rv">
+      <p data-i18n="of.abo"><b>Danach: Betrieb im Abo.</b> Vom Sensorik-Paket (ab 499 €/Monat) bis zum Premium-Humanoid-Guide (3.900–7.900 €/Monat) — inklusive Hardware, Monitoring, Analytics und SLA. Kein Invest, kein Hardware-Risiko.</p>
+      <a class="btn btn-primary" href="#pilot"><span data-i18n="of.abocta">Beratung anfragen</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ROADMAP ======================= -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="rm.eye">Roadmap</span></div>
+      <h2 data-i18n="rm.h2">Wohin wir gehen — Schritt für Schritt.</h2>
+      <p class="lead" data-i18n="rm.lead">Wir wachsen bewusst entlang harter Meilensteine statt mit großen Versprechen. Jede Phase startet erst, wenn die vorige ihre Kennzahlen liefert.</p>
+    </div>
+    <div class="road">
+      <div class="mile now rv">
+        <div class="when" data-i18n="rm.1w">Jetzt · 2026</div>
+        <h3 data-i18n="rm.1h">Founding Pilots</h3>
+        <p data-i18n="rm.1p">Beratung, Standortanalysen und die ersten Pilotprojekte in NRW — mit bewusst begrenzter Zahl an Plätzen für maximale Betreuung.</p>
+      </div>
+      <div class="mile rv">
+        <div class="when" data-i18n="rm.2w">Ende 2026</div>
+        <h3 data-i18n="rm.2h">Datenbeweis &amp; Case Studies</h3>
+        <p data-i18n="rm.2p">Veröffentlichte ROI-Nachweise aus den Founding Pilots: gemessene Interaktionen, Entlastung und Mehrumsatz am realen Standort.</p>
+      </div>
+      <div class="mile rv">
+        <div class="when">2027</div>
+        <h3 data-i18n="rm.3h">Abo-Betrieb &amp; erste Ketten</h3>
+        <p data-i18n="rm.3p">Laufender Betrieb im Abo-Modell, standardisierte Setups und die ersten Rollouts über mehrere Standorte einer Kette.</p>
+      </div>
+      <div class="mile rv">
+        <div class="when">2028</div>
+        <h3 data-i18n="rm.4h">DACH &amp; Refurbished</h3>
+        <p data-i18n="rm.4p">Expansion in die DACH-Region und zertifizierte Refurbished-Einheiten — geprüfte Roboter aus dem Feld für preissensible Standorte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PILOT / BERATUNG ======================= -->
+<section class="consult" id="pilot">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="ct.eye">Beratung &amp; Pilot</span></div>
+      <h2 data-i18n="ct.h2">Vier Schritte zum robot-ready Standort.</h2>
+      <p class="lead" data-i18n="ct.lead">Kein Risiko, keine Vorab-Investition in Hardware: Sie zahlen für Erkenntnis und Ergebnis — Schritt für Schritt.</p>
+    </div>
+    <div class="split">
+      <div class="steps rv">
+        <div class="step"><i>01</i><div><h3 data-i18n="ct.1h">Kostenloses Erstgespräch</h3><p data-i18n="ct.1p">30 Minuten: Ihr Standort, Ihre Engpässe, ehrliche Einschätzung — auch wenn die Antwort „noch nicht“ lautet.</p></div></div>
+        <div class="step"><i>02</i><div><h3 data-i18n="ct.2h">Robot-Ready Standortanalyse</h3><p data-i18n="ct.2p">Begehung und Bewertung: Use Cases, sichere Zonen, Datenlage, ROI-Potenzial. Mit klarer Go/No-Go-Empfehlung.</p></div></div>
+        <div class="step"><i>03</i><div><h3 data-i18n="ct.3h">Pilotprojekt mit Erfolgskriterien</h3><p data-i18n="ct.3p">6–8 Wochen am echten Standort. Vorab definierte Kennzahlen, wöchentliche Auswertung, Abschlussreport.</p></div></div>
+        <div class="step"><i>04</i><div><h3 data-i18n="ct.4h">Betrieb — nur bei Datenbeweis</h3><p data-i18n="ct.4p">Erst wenn der Pilot den Nutzen belegt, sprechen wir über den laufenden Betrieb im Abo. Fair für beide Seiten.</p></div></div>
+      </div>
+      <form class="form rv" id="pilotform" onsubmit="return sendForm(event)">
+        <h3 data-i18n="ct.fh">Pilot oder Beratung anfragen</h3>
+        <p class="fnote" data-i18n="ct.fnote">Wir melden uns innerhalb von 48 Stunden — mit einer ehrlichen Einschätzung, nicht mit einem Verkaufsskript.</p>
+        <div class="f-grid">
+          <div class="field"><label for="f-name" data-i18n="ct.l1">Name</label><input id="f-name" required placeholder="Max Mustermann"></div>
+          <div class="field"><label for="f-firma" data-i18n="ct.l2">Unternehmen</label><input id="f-firma" required placeholder="Muster GmbH"></div>
+          <div class="field"><label for="f-mail" data-i18n="ct.l3">E-Mail</label><input id="f-mail" type="email" required placeholder="m.mustermann@firma.de"></div>
+          <div class="field"><label for="f-typ" data-i18n="ct.l4">Standort-Typ</label>
+            <select id="f-typ">
+              <option data-i18n="ct.o1">Baumarkt / Fachmarkt</option>
+              <option data-i18n="ct.o2">Einzelhandel / Mall</option>
+              <option data-i18n="ct.o3">Messe / Kongress</option>
+              <option data-i18n="ct.o4">Event / Festival</option>
+              <option data-i18n="ct.o5">Showroom / Empfang</option>
+              <option data-i18n="ct.o6">Anderes</option>
+            </select>
+          </div>
+          <div class="field full"><label for="f-msg" data-i18n="ct.l5">Worum geht es?</label><textarea id="f-msg" placeholder="z. B.: Wir betreiben 3 Baumärkte im Raum Köln und möchten einen Pilot starten …"></textarea></div>
+        </div>
+        <button class="btn btn-primary" type="submit"><span data-i18n="ct.send">Anfrage senden</span></button>
+        <p class="priv" data-i18n="ct.priv">Öffnet Ihr E-Mail-Programm — keine Daten werden auf dieser Seite gespeichert.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv" style="text-align:center">
+      <div class="eyebrow" style="justify-content:center"><span class="bars"><i></i><i></i></span><span>FAQ</span></div>
+      <h2 style="margin-inline:auto" data-i18n="fq.h2">Die ehrlichen Antworten.</h2>
+    </div>
+    <div class="faq rv">
+      <details class="qa"><summary data-i18n="fq.1q">Was kostet ein Service-Roboter im Einzelhandel?</summary><div class="a" data-i18n="fq.1a">Pilotprojekte starten ab 2.900 € (Sensorik) bzw. 6.900 € (Baumarkt-Pilot, 6–8 Wochen inkl. Roboter). Der laufende Betrieb liegt je nach Paket zwischen 699 € und 7.900 € pro Monat — inklusive Hardware, Monitoring, Analytics und SLA. Sie kaufen keinen Roboter, sondern ein messbares Ergebnis.</div></details>
+      <details class="qa"><summary data-i18n="fq.2q">Nehmen Roboter Arbeitsplätze weg?</summary><div class="a" data-i18n="fq.2a">Nein — unser Modell ist Entlastung statt Ersatz. Der Roboter übernimmt wiederholbare Fragen und Zählaufgaben, die Fachberatung bleibt beim Menschen, und bei Spezialfällen ruft der Roboter aktiv Personal hinzu. Im deutschen Einzelhandel blieben 2024 rund 15.754 Ausbildungsplätze unbesetzt: Roboter füllen Lücken, die der Arbeitsmarkt offen lässt — und schaffen neue Aufgaben rund um Betrieb und Daten.</div></details>
+      <details class="qa"><summary data-i18n="fq.3q">Wie läuft ein Pilotprojekt konkret ab?</summary><div class="a" data-i18n="fq.3a">6–8 Wochen: Woche 1 Standortanalyse und Use-Case-Definition, Woche 2 Setup mit digitaler Karte, Wissensbasis und Tests außerhalb der Öffnungszeiten, Woche 3–6 Pilotbetrieb mit echten Kunden und wöchentlicher Auswertung, Woche 7–8 Abschlussreport mit ROI-Schätzung und Rollout-Empfehlung.</div></details>
+      <details class="qa"><summary data-i18n="fq.4q">Wie steht es um Datenschutz und DSGVO?</summary><div class="a" data-i18n="fq.4a">Privacy-first ist bei uns Architekturprinzip, nicht Fußnote: keine Gesichtserkennung, keine biometrische Identifikation, keine dauerhaften Bewegungsprofile. Wir arbeiten mit aggregierten, anonymen Daten (z. B. LiDAR-People-Counting), Edge-Verarbeitung wo möglich, transparenter Beschilderung und klaren Löschfristen. Externe Datenschutzberatung ist fester Teil jedes Projekts.</div></details>
+      <details class="qa"><summary data-i18n="fq.5q">Mit welchen Robotern und Herstellern arbeitet ihr?</summary><div class="a" data-i18n="fq.5a">Wir sind bewusst herstellerneutral. Je nach Use Case kombinieren wir Quadrupeds (Roboterhunde) als zuverlässigen Anker, Humanoide als Guide und Markenbotschafter sowie Drohnen für Vermessung und Events. Die Hardware entwickelt sich rasant — unsere Kunden profitieren davon, statt sich an ein Modell zu binden.</div></details>
+      <details class="qa"><summary data-i18n="fq.6q">Was passiert, wenn der Pilot die Erwartungen nicht erfüllt?</summary><div class="a" data-i18n="fq.6a">Dann endet das Projekt mit der Auswertung — ohne Abo-Verpflichtung. Branchenweit erfüllen nur 35–40 % der Roboter-Einführungen die Erwartungen. Genau deshalb definieren wir vorab harte Erfolgskennzahlen und verkaufen den Betrieb nur, wenn die Daten den ROI belegen. Sie behalten in jedem Fall die Standortanalyse und alle Messdaten.</div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid2">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:18px">
+          <svg viewBox="0 0 740 472" fill="url(#g-silver)" style="height:30px"><use href="#eh-mark"/></svg>
+          <b>EVERYHAND</b>
+        </a>
+        <p style="font-family:var(--font-m);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;margin-top:14px">AI. Robots. Real Impact.</p>
+        <p style="margin-top:18px;font-size:13.5px;max-width:34ch" data-i18n="ft.claim">Wir verkaufen nicht den Roboter. Wir verkaufen den Ort, der ihn nutzen kann.</p>
+      </div>
+      <div>
+        <h4 data-i18n="ft.nav">Navigation</h4>
+        <ul>
+          <li><a href="#menschen" data-i18n="nav.human2">Mensch &amp; Roboter</a></li>
+          <li><a href="#system" data-i18n="nav.system2">System</a></li>
+          <li><a href="#flotte" data-i18n="nav.fleet2">Flotte</a></li>
+          <li><a href="#roadmap" data-i18n="nav.roadmap2">Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ft.contact">Kontakt</h4>
+        <ul>
+          <li><a href="mailto:jakow.smirin@startplatz.de">jakow.smirin@startplatz.de</a></li>
+          <li data-i18n="ft.loc">Düsseldorf / Köln</li>
+          <li><a href="#pilot" data-i18n="ft.cta">Pilot anfragen</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ft.legal">Rechtliches</h4>
+        <ul>
+          <li><a href="#" data-i18n="ft.imp">Impressum</a></li>
+          <li><a href="#" data-i18n="ft.dse">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span data-i18n="ft.copy">© 2026 Everyhand GmbH i. Gr. · Düsseldorf / Köln</span>
+      <span data-i18n="ft.note">Einsatz-Szenen teilweise als Konzept-Visualisierung dargestellt.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== i18n ===== */
+const EN = {
+"nav.human":"Humans & Robots","nav.system":"System","nav.fleet":"Fleet","nav.offers":"Offers & Pricing","nav.roadmap":"Roadmap","nav.cta":"Request a pilot",
+"hero.tag":"AI · Robots · Real Impact",
+"hero.h1":"A helping hand.<br><em>Everywhere.</em>",
+"hero.sub":"Everyhand makes your venue ready for AI robots — from first consultation through pilot project to daily operations. Vendor-neutral, privacy-first, with ROI you can see in your own P&L.",
+"hero.cta1":"Request a pilot project","hero.cta2":"What does it cost?",
+"chip.1":"Humanoids","chip.2":"Robot dogs","chip.3":"Drones","chip.4":"Sensors & AI",
+"ph":"Visual coming — img/hero.png","ph2":"Visual coming — img/team-mensch-roboter.png",
+"hero.imgtag":"In action · Retail guide",
+"stat.1":"price drop for humanoids since 2023 — the bottleneck is no longer the machine, it's the venue",
+"stat.2w":"wks","stat.2":"from first call to a measurable proof of value at your own site",
+"stat.3":"entry point for a pilot project — a test, not a capital investment",
+"stat.4":"privacy-first: no facial recognition, no biometric identification",
+"hum.eye":"Humans first","hum.h2":"We don't replace people. We give them their time back.",
+"hum.p1":"German retail is short on hands — not on tasks. Our robots take over the hundredth direction request and the counting at the door, so your team can do what only humans can: advise, listen, solve problems.",
+"hum.p2":"And the history of automation shows (Jevons paradox): when a service gets cheaper and better, demand for it grows — creating new tasks and jobs around operations, data and customer experience.",
+"hum.l1":"The robot handles repetitive questions — expert advice stays human.",
+"hum.l2":"For special cases the robot actively calls your staff instead of displacing them.",
+"hum.l3":"The goal of every project is relief and revenue — never headcount reduction.",
+"hum.imgtag":"A partner, not a replacement",
+"hum.f1":"unfilled retail apprenticeship positions in Germany in 2024 alone (KOFA/IfM)",
+"hum.f2":"of companies can't find qualified staff despite the economic slowdown",
+"hum.f3":"of total costs in retail are personnel — relief shows up immediately (HDE)",
+"sys.eye":"The system","sys.h2":"Four layers. One robot-ready venue.",
+"sys.lead":"A robot alone is useless — it needs a venue that understands it. We deliver the intelligence beneath the machine: the first three layers are the product, the fourth is the interchangeable surface.",
+"sys.1h":"Venue data","sys.1p":"A digital map of your site: zones, routes, product locations, safe paths, charging points — the foundation of every deployment.",
+"sys.2h":"Sensors — privacy-first","sys.2p":"LiDAR, radar & counters deliver anonymous movement and density data at over 99% accuracy. No cameras needed, no faces.",
+"sys.3h":"AI decision logic","sys.3p":"Venue knowledge meets live data: answering questions, guiding visitors, spotting congestion, calling staff — model-neutral.",
+"sys.4h":"Robots & interfaces","sys.4p":"Humanoid, quadruped, drone, terminal or dashboard — we choose vendor-neutrally whatever works at your venue.",
+"fl.eye":"The fleet","fl.h2":"Real robots. Real jobs.",
+"fl.lead":"No tablets on wheels: we deploy machines with presence and impact — each with a clear role and proven use cases.",
+"fl.1tag":"Quadruped · DIY store","fl.1k":"Quadruped — the anchor","fl.1h":"The reliable first on the floor.",
+"fl.1p":"Robot dogs are the most mature platform on the market — robust, safe and ready to deploy. Every deployment starts with them, because the first impression decides the whole project.",
+"fl.1u1":"Guiding customers: \"Where do I find …?\"","fl.1u2":"Product finder with venue knowledge","fl.1u3":"Greeting & promotion areas","fl.1u4":"After-hours walkthroughs",
+"fl.1pr":"Pilot from €6,900 · operations from €1,900/month",
+"fl.2tag":"Humanoid · Trade fair & reception","fl.2k":"Humanoid — the brand ambassador","fl.2h":"The appearance everyone talks about.",
+"fl.2p":"A humanoid guide draws footfall, press and attention — while answering real visitor questions in multiple languages. Already proven live as a guide at Expo 2025 in Osaka.",
+"fl.2u1":"Trade-fair concierge & visitor guidance","fl.2u2":"Reception in showrooms & stores","fl.2u3":"Product & offer presentation","fl.2u4":"PR moments & brand staging",
+"fl.2pr":"Trade-fair concierge from €4,900 · premium plan up to €7,900/month",
+"fl.3tag":"Drone · Events & mapping","fl.3k":"Drone — the overview","fl.3h":"Sees what nobody sees from the ground.",
+"fl.3p":"For events and large areas: 3D mapping of the grounds, anonymous crowd-flow data in real time, and a show element visitors won't forget.",
+"fl.3u1":"Crowd flow & congestion detection","fl.3u2":"3D mapping for the venue model","fl.3u3":"Situation overview for organisers","fl.3u4":"Staging & opening moments",
+"fl.3pr":"EventFlow pilot from €2,900 · event packages up to €59,000",
+"fl.4tag":"Sensors · Live dashboard","fl.4k":"Sensors & dashboard — the nervous system","fl.4h":"Your venue, finally measurable.",
+"fl.4p":"A website knows where visitors click — now your venue does too: footfall, walking routes, dwell zones and bottlenecks as a live dashboard and report. Fully anonymous, GDPR-compliant.",
+"fl.4u1":"Heatmaps & footfall analysis","fl.4u2":"Live traffic-light logic & alerts","fl.4u3":"Most frequent customer questions as a report","fl.4u4":"Also bookable without robots",
+"fl.4pr":"Sensor plan from €499/month — the risk-free entry",
+"of.eye":"Offers & pricing","of.h2":"A test, not a capital investment.",
+"of.lead":"Every project starts with clear success criteria and a fixed price. A subscription follows only if the data proves the value — that's our pricing principle.",
+"of.1h":"Robot-Ready Site Analysis","of.1per":"one-off · the entry point",
+"of.1p":"Walkthrough, use-case check and ROI estimate: can your venue deploy robots meaningfully — and what would it deliver? A clear recommendation, not a sales deck.",
+"of.flag":"Popular to start","of.2h":"DIY-Store Innovation Pilot","of.2per":"6–8 weeks · robot included",
+"of.2p":"The first robot-ready store in your region: a robot guide on the floor, measurement of real customer interactions, evaluation with ROI proof, case study and press moment.",
+"of.3h":"Trade-Fair Concierge","of.3per":"per event",
+"of.3p":"An AI guide for visitor navigation and booth activation: multilingual, with venue knowledge and an evaluation of the most frequent visitor questions for your follow-up.",
+"of.4h":"EventFlow Sensor Pilot","of.4per":"per event · no robots",
+"of.4p":"Anonymous real-time data on visitor flows: density traffic lights for critical zones, peak analysis and a summary report — the risk-free basis for everything else.",
+"of.more":"Enquire →","of.more2":"Request a pilot slot →","of.more3":"Enquire →","of.more4":"Enquire →",
+"of.abo":"<b>Afterwards: operations as a subscription.</b> From the sensor package (from €499/month) to the premium humanoid guide (€3,900–7,900/month) — hardware, monitoring, analytics and SLA included. No capex, no hardware risk.",
+"of.abocta":"Request consultation",
+"rm.eye":"Roadmap","rm.h2":"Where we're going — step by step.",
+"rm.lead":"We grow deliberately along hard milestones instead of big promises. Each phase only starts once the previous one delivers its numbers.",
+"rm.1w":"Now · 2026","rm.1h":"Founding pilots","rm.1p":"Consulting, site analyses and the first pilot projects in NRW — with a deliberately limited number of slots for maximum attention.",
+"rm.2w":"Late 2026","rm.2h":"Proof & case studies","rm.2p":"Published ROI evidence from the founding pilots: measured interactions, staff relief and added revenue at real venues.",
+"rm.3h":"Subscriptions & first chains","rm.3p":"Ongoing operations as a subscription, standardised setups and the first rollouts across multiple locations of a chain.",
+"rm.4h":"DACH & refurbished","rm.4p":"Expansion across the DACH region and certified refurbished units — field-proven robots for price-sensitive venues.",
+"ct.eye":"Consulting & pilot","ct.h2":"Four steps to a robot-ready venue.",
+"ct.lead":"No risk, no upfront hardware investment: you pay for insight and results — step by step.",
+"ct.1h":"Free initial call","ct.1p":"30 minutes: your venue, your bottlenecks, an honest assessment — even if the answer is \"not yet\".",
+"ct.2h":"Robot-Ready site analysis","ct.2p":"Walkthrough and assessment: use cases, safe zones, data situation, ROI potential. With a clear go/no-go recommendation.",
+"ct.3h":"Pilot with success criteria","ct.3p":"6–8 weeks at your real venue. Pre-defined KPIs, weekly evaluation, final report.",
+"ct.4h":"Operations — only with proof","ct.4p":"Only once the pilot proves the value do we talk about ongoing operations. Fair for both sides.",
+"ct.fh":"Request a pilot or consultation",
+"ct.fnote":"We reply within 48 hours — with an honest assessment, not a sales script.",
+"ct.l1":"Name","ct.l2":"Company","ct.l3":"Email","ct.l4":"Venue type","ct.l5":"What is it about?",
+"ct.o1":"DIY / specialist store","ct.o2":"Retail / mall","ct.o3":"Trade fair / congress","ct.o4":"Event / festival","ct.o5":"Showroom / reception","ct.o6":"Other",
+"ct.send":"Send enquiry","ct.priv":"Opens your email client — no data is stored on this page.",
+"fq.h2":"The honest answers.",
+"fq.1q":"What does a service robot in retail cost?",
+"fq.1a":"Pilot projects start at €2,900 (sensors) or €6,900 (DIY-store pilot, 6–8 weeks incl. robot). Ongoing operations range from €699 to €7,900 per month depending on the package — hardware, monitoring, analytics and SLA included. You're not buying a robot, you're buying a measurable result.",
+"fq.2q":"Do robots take away jobs?",
+"fq.2a":"No — our model is relief, not replacement. The robot handles repetitive questions and counting tasks, expert advice stays human, and for special cases the robot actively calls staff. In German retail alone, around 15,754 apprenticeship positions went unfilled in 2024: robots fill gaps the labour market leaves open — and create new roles around operations and data.",
+"fq.3q":"How does a pilot project work in practice?",
+"fq.3a":"6–8 weeks: week 1 site analysis and use-case definition, week 2 setup with digital map, knowledge base and after-hours testing, weeks 3–6 pilot operation with real customers and weekly reviews, weeks 7–8 final report with ROI estimate and rollout recommendation.",
+"fq.4q":"What about data protection and GDPR?",
+"fq.4a":"Privacy-first is an architectural principle for us, not a footnote: no facial recognition, no biometric identification, no permanent movement profiles. We work with aggregated, anonymous data (e.g. LiDAR people counting), edge processing where possible, transparent signage and clear deletion periods. External data-protection counsel is a fixed part of every project.",
+"fq.5q":"Which robots and manufacturers do you work with?",
+"fq.5a":"We are deliberately vendor-neutral. Depending on the use case we combine quadrupeds (robot dogs) as the reliable anchor, humanoids as guides and brand ambassadors, and drones for mapping and events. The hardware evolves rapidly — our clients benefit from that instead of being locked to one model.",
+"fq.6q":"What if the pilot doesn't meet expectations?",
+"fq.6a":"Then the project ends with the evaluation — no subscription obligation. Industry-wide, only 35–40% of robot deployments meet expectations. That's exactly why we define hard success criteria upfront and only sell operations if the data proves the ROI. Either way, you keep the site analysis and all measurement data.",
+"ft.claim":"We don't sell the robot. We sell the venue that can use it.",
+"ft.nav":"Navigation","nav.human2":"Humans & Robots","nav.system2":"System","nav.fleet2":"Fleet","nav.roadmap2":"Roadmap",
+"ft.contact":"Contact","ft.loc":"Düsseldorf / Cologne","ft.cta":"Request a pilot",
+"ft.legal":"Legal","ft.imp":"Imprint","ft.dse":"Privacy policy",
+"ft.copy":"© 2026 Everyhand GmbH (in formation) · Düsseldorf / Cologne",
+"ft.note":"Some deployment scenes shown as concept visualisations."
+};
+const DE = {};
+document.querySelectorAll("[data-i18n]").forEach(el=>{ DE[el.dataset.i18n] = el.innerHTML; });
+function setLang(l){
+  const dict = l === "en" ? EN : DE;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const t = dict[el.dataset.i18n];
+    if(t !== undefined) el.innerHTML = t;
+  });
+  document.documentElement.lang = l;
+  document.getElementById("lang-de").classList.toggle("on", l==="de");
+  document.getElementById("lang-en").classList.toggle("on", l==="en");
+  try{ localStorage.setItem("eh-lang", l); }catch(e){}
+}
+try{ if(localStorage.getItem("eh-lang")==="en") setLang("en"); }catch(e){}
+
+/* ===== reveal on scroll ===== */
+const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+
+/* ===== mobile nav ===== */
+document.querySelectorAll("#navlinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navlinks").classList.remove("open")));
+
+/* ===== form -> mailto ===== */
+function sendForm(ev){
+  ev.preventDefault();
+  const v = id => document.getElementById(id).value;
+  const en = document.documentElement.lang === "en";
+  const subject = (en?"Pilot/consulting enquiry — ":"Pilot-/Beratungsanfrage — ") + v("f-firma");
+  const body = (en
+    ? `Name: ${v("f-name")}\nCompany: ${v("f-firma")}\nEmail: ${v("f-mail")}\nVenue type: ${v("f-typ")}\n\nMessage:\n${v("f-msg")}`
+    : `Name: ${v("f-name")}\nUnternehmen: ${v("f-firma")}\nE-Mail: ${v("f-mail")}\nStandort-Typ: ${v("f-typ")}\n\nNachricht:\n${v("f-msg")}`);
+  window.location.href = "mailto:jakow.smirin@startplatz.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  return false;
+}
+</script>
+</body>
+</html>
