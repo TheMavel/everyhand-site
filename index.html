@@ -17,6 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F6F7F9">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preload" as="image" href="img/hero.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -310,7 +311,7 @@ footer a:hover{color:#fff}
       </div>
     </div>
     <div class="media" id="m-hero">
-      <img src="img/hero.png" alt="Die Everyhand-Flotte: Humanoide in Arbeitskleidung, Roboterhunde und Drohnen einsatzbereit vor hellem Himmel" onerror="this.parentElement.classList.add('noimg')">
+      <picture><source srcset="img/hero.webp" type="image/webp"><img src="img/hero.png" alt="Die Everyhand-Flotte: Humanoide in Arbeitskleidung, Roboterhunde und Drohnen einsatzbereit vor hellem Himmel" onerror="this.parentElement.classList.add('noimg')" fetchpriority="high" decoding="async"></picture>
       <div class="ph">
         <svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg>
         <small data-i18n="ph">Visual folgt — img/hero.png</small>
@@ -354,7 +355,7 @@ footer a:hover{color:#fff}
     </div>
     <div class="rv">
       <div class="media" id="m-team">
-        <img src="img/team-mensch-roboter.png" alt="Mitarbeiterin im Baumarkt arbeitet entspannt neben einem Assistenz-Roboter" onerror="this.parentElement.classList.add('noimg')">
+        <picture><source srcset="img/team-mensch-roboter.webp" type="image/webp"><img src="img/team-mensch-roboter.png" alt="Mitarbeiterin im Baumarkt arbeitet entspannt neben einem Assistenz-Roboter" onerror="this.parentElement.classList.add('noimg')" loading="lazy" decoding="async"></picture>
         <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small data-i18n="ph2">Visual folgt — img/team-mensch-roboter.png</small></div>
         <div class="tag" data-i18n="hum.imgtag">Partner, kein Ersatz</div>
       </div>
@@ -396,7 +397,7 @@ footer a:hover{color:#fff}
 
       <article class="unit rv">
         <div class="media u-media" id="m-quad">
-          <img src="img/quadruped-inspektion.png" alt="Quadruped Roboterhund liest Anzeigen an Geräten in einem engen Technik-Tunnel ab" onerror="this.parentElement.classList.add('noimg')">
+          <picture><source srcset="img/quadruped-inspektion.webp" type="image/webp"><img src="img/quadruped-inspektion.png" alt="Quadruped Roboterhund liest Anzeigen an Geräten in einem engen Technik-Tunnel ab" onerror="this.parentElement.classList.add('noimg')" loading="lazy" decoding="async"></picture>
           <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small>img/quadruped-inspektion.png</small></div>
           <div class="tag" data-i18n="fl.1tag">Quadruped · Inspektion</div>
         </div>
@@ -416,7 +417,7 @@ footer a:hover{color:#fff}
 
       <article class="unit rv">
         <div class="media u-media" id="m-huma">
-          <img src="img/humanoid-messe.png" alt="Humanoider Roboter empfängt Besucher an einem Messestand" onerror="this.parentElement.classList.add('noimg')">
+          <picture><source srcset="img/humanoid-messe.webp" type="image/webp"><img src="img/humanoid-messe.png" alt="Humanoider Roboter empfängt Besucher an einem Messestand" onerror="this.parentElement.classList.add('noimg')" loading="lazy" decoding="async"></picture>
           <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small>img/humanoid-messe.png</small></div>
           <div class="tag" data-i18n="fl.2tag">Humanoid · Messe &amp; Empfang</div>
         </div>
@@ -436,7 +437,7 @@ footer a:hover{color:#fff}
 
       <article class="unit rv">
         <div class="media u-media" id="m-drone">
-          <img src="img/drone-event.png" alt="Drohne über einem Eventgelände bei Tageslicht zur anonymen Besucherstrom-Analyse" onerror="this.parentElement.classList.add('noimg')">
+          <picture><source srcset="img/drone-event.webp" type="image/webp"><img src="img/drone-event.png" alt="Drohne über einem Eventgelände bei Tageslicht zur anonymen Besucherstrom-Analyse" onerror="this.parentElement.classList.add('noimg')" loading="lazy" decoding="async"></picture>
           <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small>img/drone-event.png</small></div>
           <div class="tag" data-i18n="fl.3tag">Drohne · Event &amp; Mapping</div>
         </div>
@@ -456,7 +457,7 @@ footer a:hover{color:#fff}
 
       <article class="unit rv">
         <div class="media u-media" id="m-sens">
-          <img src="img/sensorik-dashboard.png" alt="Helles Control-Room-Dashboard mit anonymen Besucherstrom-Heatmaps" onerror="this.parentElement.classList.add('noimg')">
+          <picture><source srcset="img/sensorik-dashboard.webp" type="image/webp"><img src="img/sensorik-dashboard.png" alt="Helles Control-Room-Dashboard mit anonymen Besucherstrom-Heatmaps" onerror="this.parentElement.classList.add('noimg')" loading="lazy" decoding="async"></picture>
           <div class="ph"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg><small>img/sensorik-dashboard.png</small></div>
           <div class="tag" data-i18n="fl.4tag">Sensorik · Live-Dashboard</div>
         </div>
