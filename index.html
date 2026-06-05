@@ -263,6 +263,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(246,247,249,.82);backdro
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue-bright);box-shadow:0 0 0 3px rgba(47,107,255,.18)}
 .form .btn{width:100%;margin-top:22px;border:0}
 .form .priv{font-size:12px;color:#6E7682;margin-top:14px;text-align:center}
+.fmsg{display:none;margin-top:16px;padding:13px 16px;border-radius:6px;font-size:14.5px}
+.fmsg.ok{display:block;background:#0E2B16;border:1px solid #1F5E33;color:#9FE2B5}
+.fmsg.err{display:block;background:#2B0E0E;border:1px solid #5E1F1F;color:#E2A09F}
+.fmsg a{color:#fff}
+.btn-cal{background:transparent;color:#fff;border:1.5px solid #3A414C;box-shadow:none}
+.btn-cal:hover{border-color:var(--blue-bright);color:var(--blue-bright);background:transparent}
+.form .or{display:flex;align-items:center;gap:12px;margin:18px 0 0;color:#6E7682;font-family:var(--font-m);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.form .or::before,.form .or::after{content:"";flex:1;height:1px;background:#262C35}
+.callink{font-weight:600;color:var(--blue-bright) !important;font-size:14px}
 .faq{max-width:840px;margin-inline:auto}
 .qa{border-bottom:1px solid var(--line-2)}
 .qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 4px;font-family:var(--font-d);font-weight:600;font-size:17.5px}
@@ -612,7 +621,7 @@ footer a:hover{color:#fff}
     </div>
     <div class="split">
       <div class="steps rv">
-        <div class="step"><i>01</i><div><h3 data-i18n="ct.1h">Kostenloses Erstgespräch</h3><p data-i18n="ct.1p">30 Minuten: Ihr Standort, Ihre Engpässe, ehrliche Einschätzung — auch wenn die Antwort „noch nicht“ lautet.</p></div></div>
+        <div class="step"><i>01</i><div><h3 data-i18n="ct.1h">Kostenloses Erstgespräch</h3><p data-i18n="ct.1p">30 Minuten: Ihr Standort, Ihre Engpässe, ehrliche Einschätzung — auch wenn die Antwort „noch nicht“ lautet.</p><p style="margin-top:8px"><a class="callink" href="https://calendly.com/jakow-smirin-startplatz/robo-call" target="_blank" rel="noopener" data-i18n="ct.1cal">→ Termin direkt buchen (unverbindlich)</a></p></div></div>
         <div class="step"><i>02</i><div><h3 data-i18n="ct.2h">Robot-Ready Standortanalyse</h3><p data-i18n="ct.2p">Begehung und Bewertung: Use Cases, sichere Zonen, Datenlage, ROI-Potenzial. Mit klarer Go/No-Go-Empfehlung.</p></div></div>
         <div class="step"><i>03</i><div><h3 data-i18n="ct.3h">Pilotprojekt mit Erfolgskriterien</h3><p data-i18n="ct.3p">6–8 Wochen am echten Standort. Vorab definierte Kennzahlen, wöchentliche Auswertung, Abschlussreport.</p></div></div>
         <div class="step"><i>04</i><div><h3 data-i18n="ct.4h">Betrieb — nur bei Datenbeweis</h3><p data-i18n="ct.4p">Erst wenn der Pilot den Nutzen belegt, sprechen wir über den laufenden Betrieb im Abo. Fair für beide Seiten.</p></div></div>
@@ -636,8 +645,11 @@ footer a:hover{color:#fff}
           </div>
           <div class="field full"><label for="f-msg" data-i18n="ct.l5">Worum geht es?</label><textarea id="f-msg" placeholder="z. B.: Wir betreiben 3 Baumärkte im Raum Köln und möchten einen Pilot starten …"></textarea></div>
         </div>
-        <button class="btn btn-primary" type="submit"><span data-i18n="ct.send">Anfrage senden</span></button>
-        <p class="priv" data-i18n="ct.priv">Öffnet Ihr E-Mail-Programm — keine Daten werden auf dieser Seite gespeichert.</p>
+        <button class="btn btn-primary" id="fsubmit" type="submit"><span data-i18n="ct.send">Anfrage senden</span></button>
+        <div class="fmsg" id="formmsg" role="status"></div>
+        <div class="or" data-i18n="ct.or">oder</div>
+        <a class="btn btn-cal" style="width:100%;margin-top:16px" href="https://calendly.com/jakow-smirin-startplatz/robo-call" target="_blank" rel="noopener"><span data-i18n="ct.cal">📅 Unverbindlich beraten lassen — Termin buchen</span></a>
+        <p class="priv" data-i18n="ct.priv">Ihre Angaben werden verschlüsselt an uns übertragen und nur zur Bearbeitung Ihrer Anfrage genutzt. <a href="datenschutz.html" style="color:#8A93A0">Datenschutz</a></p>
       </form>
     </div>
   </div>
@@ -801,7 +813,7 @@ const EN = {
 "ct.fnote":"We reply within 48 hours — with an honest assessment, not a sales script.",
 "ct.l1":"Name","ct.l2":"Company","ct.l3":"Email","ct.l4":"Venue type","ct.l5":"What is it about?",
 "ct.o1":"DIY / specialist store","ct.o2":"Retail / mall","ct.o3":"Trade fair / congress","ct.o4":"Event / festival","ct.o5":"Showroom / reception","ct.o6":"Other",
-"ct.send":"Send enquiry","ct.priv":"Opens your email client — no data is stored on this page.",
+"ct.send":"Send enquiry","ct.priv":"Your details are transmitted encrypted and used only to process your enquiry. <a href=\"datenschutz.html\" style=\"color:#8A93A0\">Privacy</a>","ct.or":"or","ct.cal":"📅 Book a free consultation call","ct.1cal":"→ Book a slot directly (no obligation)",
 "fq.h2":"The honest answers.",
 "fq.1q":"What does a service robot in retail cost?",
 "fq.1a":"Pilot projects start at €2,900 (sensors) or €6,900 (DIY-store pilot, 6–8 weeks incl. robot). Ongoing operations range from €699 to €7,900 per month depending on the package — hardware, monitoring, analytics and SLA included. You're not buying a robot, you're buying a measurable result.",
@@ -922,16 +934,48 @@ document.querySelectorAll(".rv").forEach(el=>io.observe(el));
 /* ===== mobile nav ===== */
 document.querySelectorAll("#navlinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navlinks").classList.remove("open")));
 
-/* ===== form -> mailto ===== */
-function sendForm(ev){
+/* ===== form -> n8n webhook (mit E-Mail-Fallback) ===== */
+async function sendForm(ev){
   ev.preventDefault();
-  const v = id => document.getElementById(id).value;
   const en = document.documentElement.lang === "en";
-  const subject = (en?"Pilot/consulting enquiry — ":"Pilot-/Beratungsanfrage — ") + v("f-firma");
-  const body = (en
-    ? `Name: ${v("f-name")}\nCompany: ${v("f-firma")}\nEmail: ${v("f-mail")}\nVenue type: ${v("f-typ")}\n\nMessage:\n${v("f-msg")}`
-    : `Name: ${v("f-name")}\nUnternehmen: ${v("f-firma")}\nE-Mail: ${v("f-mail")}\nStandort-Typ: ${v("f-typ")}\n\nNachricht:\n${v("f-msg")}`);
-  window.location.href = "mailto:jakow.smirin@startplatz.de?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  const v = id => document.getElementById(id).value;
+  const btn = document.getElementById("fsubmit");
+  const msg = document.getElementById("formmsg");
+  const lbl = btn.querySelector("span");
+  btn.disabled = true;
+  lbl.textContent = en ? "Sending…" : "Wird gesendet…";
+  msg.className = "fmsg";
+  try{
+    const r = await fetch("https://n8n.startplatz.org/webhook/everyhand-pilot-anfrage", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        name: v("f-name"),
+        unternehmen: v("f-firma"),
+        email: v("f-mail"),
+        standorttyp: v("f-typ"),
+        nachricht: v("f-msg"),
+        quelle: location.href,
+        sprache: document.documentElement.lang,
+        zeitpunkt: new Date().toISOString()
+      })
+    });
+    if(!r.ok) throw new Error("HTTP " + r.status);
+    document.getElementById("pilotform").reset();
+    msg.className = "fmsg ok";
+    msg.textContent = en
+      ? "Thank you! Your inquiry has reached us — we'll get back to you within 48 hours."
+      : "Danke! Ihre Anfrage ist bei uns eingegangen — wir melden uns innerhalb von 48 Stunden.";
+    lbl.textContent = en ? "Sent ✓" : "Gesendet ✓";
+  }catch(e){
+    msg.className = "fmsg err";
+    msg.innerHTML = (en
+      ? "Transmission failed — please email us directly: "
+      : "Übertragung fehlgeschlagen — bitte direkt per E-Mail an: ")
+      + '<a href="mailto:jakow.smirin@startplatz.de">jakow.smirin@startplatz.de</a>';
+    btn.disabled = false;
+    lbl.textContent = en ? "Try again" : "Erneut versuchen";
+  }
   return false;
 }
 </script>
