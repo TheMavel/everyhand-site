@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://everyhand.de/sitemap.xml
+Sitemap: https://everyhand.tech/sitemap.xml
