@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://everyhand.tech/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://everyhand.tech/ratgeber.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://everyhand.tech/serviceroboter-kosten.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://everyhand.tech/roboter-mieten-messe-event.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://everyhand.tech/roboter-arbeitsplaetze.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://everyhand.tech/roboterhund-inspektion.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
