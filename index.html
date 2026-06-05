@@ -115,23 +115,20 @@ header{position:sticky;top:0;z-index:50;background:rgba(246,247,249,.82);backdro
 .media .ph svg{width:46%;height:auto;opacity:.9}
 .media .ph small{font-family:var(--font-m);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
 .media .tag{position:absolute;left:0;bottom:0;background:rgba(14,17,22,.85);color:#fff;font-family:var(--font-m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px 10px 14px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,0 100%);backdrop-filter:blur(4px)}
-/* video section */
-html{scroll-snap-type:y proximity}
-.hero,#werbespot,.strip{scroll-snap-align:start}
-#werbespot{scroll-snap-stop:always}
-.video-sec{background:var(--ink);min-height:96svh;display:flex;align-items:center;padding-block:clamp(40px,6vw,72px);position:relative}
-.video-sec .v-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px}
-.video-sec .eyebrow{margin-bottom:0;color:var(--blue-bright)}
-.video-sec .eyebrow .bars i{background:var(--blue-bright)}
-.video-sec .v-note{font-family:var(--font-m);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#6E7682}
-.vmedia{position:relative;width:min(1060px,100%);margin-inline:auto;aspect-ratio:16/9;clip-path:polygon(4% 0,100% 0,100% 90%,96% 100%,0 100%,0 10%);background:#000;box-shadow:0 40px 90px -40px rgba(0,0,0,.8)}
-.vmedia video{width:100%;height:100%;object-fit:cover;display:block}
+/* natives Snapping — nur aktiv, wenn die Video-Zone im Anflug ist (html.vsnap) */
+html.vsnap{scroll-snap-type:y mandatory}
+html.vsnap .hero{scroll-snap-align:start}
+html.vsnap .video-sec{scroll-snap-align:start;scroll-snap-stop:always}
+html.vsnap .strip{scroll-snap-align:start}
+/* video section (fullscreen) */
+.video-sec{position:relative;height:100svh;background:#000;overflow:hidden}
+.video-sec video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .v-dim{position:absolute;inset:0;background:#0E1116;opacity:0;transition:opacity .55s ease;pointer-events:none;z-index:2}
-.video-sec.dimmed .v-dim{opacity:.82}
+.video-sec.dimmed .v-dim{opacity:.85}
+.video-sec .tag{position:absolute;left:0;bottom:0;z-index:3;background:rgba(14,17,22,.85);color:#fff;font-family:var(--font-m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px 10px 14px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,0 100%);backdrop-filter:blur(4px)}
 .v-sound{position:absolute;right:18px;bottom:18px;z-index:3;background:rgba(14,17,22,.85);color:#fff;border:1px solid #3A414C;border-radius:4px;padding:9px 16px;font-family:var(--font-m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transform:skewX(var(--skew));transition:.2s;backdrop-filter:blur(4px)}
 .v-sound>span{display:inline-block;transform:skewX(calc(var(--skew)*-1))}
 .v-sound:hover{border-color:var(--blue-bright);color:var(--blue-bright)}
-.vmedia .tag{z-index:3}
 .strip{border-block:1px solid var(--line);background:var(--surface)}
 .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
 .stat{padding:34px 28px;border-left:1px solid var(--line)}
@@ -325,18 +322,10 @@ footer a:hover{color:#fff}
 
 <!-- ======================= WERBESPOT ======================= -->
 <section class="video-sec" id="werbespot" aria-label="Everyhand Werbespot">
-  <div class="wrap" style="width:100%">
-    <div class="v-head">
-      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="vid.eye">Der Spot</span></div>
-      <div class="v-note" data-i18n="vid.note">35 Sekunden · läuft in Schleife</div>
-    </div>
-    <div class="vmedia">
-      <video id="advid" src="video/final-ad.mp4" poster="video/poster.jpg" loop playsinline preload="metadata"></video>
-      <div class="v-dim"></div>
-      <button class="v-sound" id="vsound" type="button" aria-label="Ton umschalten"><span>Ton an</span></button>
-      <div class="tag" data-i18n="vid.tag">Everyhand · Der Werbespot</div>
-    </div>
-  </div>
+  <video id="advid" src="video/final-ad.mp4" poster="video/poster.jpg" loop playsinline preload="metadata"></video>
+  <div class="v-dim"></div>
+  <button class="v-sound" id="vsound" type="button" aria-label="Ton umschalten"><span>Ton an</span></button>
+  <div class="tag" data-i18n="vid.tag">Everyhand · Der Werbespot</div>
 </section>
 
 <!-- ======================= STATS ======================= -->
@@ -680,7 +669,7 @@ const EN = {
 "chip.1":"Humanoids","chip.2":"Robot dogs","chip.3":"Drones","chip.4":"Sensors & AI",
 "ph":"Visual coming — img/hero.png","ph2":"Visual coming — img/team-mensch-roboter.png",
 "hero.imgtag":"The fleet · Ready to deploy",
-"vid.eye":"The ad","vid.note":"35 seconds · plays on a loop","vid.tag":"Everyhand · The commercial",
+"vid.tag":"Everyhand · The commercial",
 "stat.1":"price drop for humanoids since 2023 — the bottleneck is no longer the machine, it's the venue",
 "stat.2w":"wks","stat.2":"from first call to a measurable proof of value at your own site",
 "stat.3":"entry point for a pilot project — a test, not a capital investment",
@@ -784,7 +773,7 @@ function setLang(l){
 }
 try{ if(localStorage.getItem("eh-lang")==="en") setLang("en"); }catch(e){}
 
-/* ===== werbespot: snap + autoplay/pause + dim + resume ===== */
+/* ===== werbespot: fullscreen video — snap in/out, autoplay/pause, dim, resume ===== */
 (function(){
   const sec = document.getElementById("werbespot");
   const vid = document.getElementById("advid");
@@ -792,18 +781,13 @@ try{ if(localStorage.getItem("eh-lang")==="en") setLang("en"); }catch(e){}
   if(!sec || !vid) return;
   const L = () => (document.documentElement.lang === "en"
     ? {on:"Sound on", off:"Sound off"} : {on:"Ton an", off:"Ton aus"});
-  let userGesture = false;
-  let inView = false;
+  let userGesture = false, inView = false;
   function setBtn(){ btn.querySelector("span").textContent = vid.muted ? L().on : L().off; }
   function tryPlay(){
     if(!inView) return;
     vid.volume = 0.5;
     if(userGesture) vid.muted = false;
-    vid.play().then(setBtn).catch(()=>{
-      vid.muted = true;
-      vid.play().catch(()=>{});
-      setBtn();
-    });
+    vid.play().then(setBtn).catch(()=>{ vid.muted = true; vid.play().catch(()=>{}); setBtn(); });
   }
   ["pointerdown","keydown","touchend"].forEach(ev =>
     window.addEventListener(ev, ()=>{
@@ -818,20 +802,20 @@ try{ if(localStorage.getItem("eh-lang")==="en") setLang("en"); }catch(e){}
     if(!vid.muted) vid.volume = 0.5;
     setBtn();
   });
-  new IntersectionObserver(entries=>{
-    entries.forEach(en=>{
-      if(en.intersectionRatio >= 0.55){
-        inView = true;
-        sec.classList.remove("dimmed");
-        tryPlay();
-      } else if(en.intersectionRatio <= 0.25){
-        inView = false;
-        sec.classList.add("dimmed");
-        if(!vid.paused) vid.pause();
-      }
+  new IntersectionObserver(es=>{
+    es.forEach(en=>{
+      if(en.intersectionRatio >= 0.55){ inView = true; sec.classList.remove("dimmed"); tryPlay(); }
+      else if(en.intersectionRatio <= 0.25){ inView = false; sec.classList.add("dimmed"); if(!vid.paused) vid.pause(); }
     });
   }, {threshold:[0.25,0.55]}).observe(sec);
   setBtn();
+
+  /* natives Snapping nur in der Video-Zone aktivieren */
+  new IntersectionObserver(es=>{
+    es.forEach(en=>{
+      document.documentElement.classList.toggle("vsnap", en.isIntersecting);
+    });
+  }, {rootMargin:"35% 0px 35% 0px", threshold:0}).observe(sec);
 })();
 
 /* ===== reveal on scroll ===== */
