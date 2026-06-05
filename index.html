@@ -109,7 +109,8 @@
   --font-d:"Space Grotesk",sans-serif; --font-b:"Inter",sans-serif; --font-m:"IBM Plex Mono",monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{overflow-x:clip}
 body{font-family:var(--font-b);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--blue);color:#fff}
 .wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(20px,4vw,32px)}
@@ -297,6 +298,11 @@ footer a:hover{color:#fff}
   .nav-links{display:none}
 }
 @media(max-width:780px){
+  .btn{white-space:normal;text-align:center;padding:13px 20px}
+  .btn-row .btn{width:100%}
+  .form{padding:24px 18px}
+  .consult .split{gap:36px}
+  .step{grid-template-columns:40px 1fr;gap:12px}
   .hero-grid,.split,.unit{grid-template-columns:1fr}
   .unit:nth-child(even) .u-media{order:0}
   .layers,.offers,.road,.f-grid2{grid-template-columns:1fr}
