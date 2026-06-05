@@ -1,0 +1,14 @@
+# Build-/Tool-Reste (kein Transparenzwert)
+node_modules/
+dist/
+src/
+package.json
+package-lock.json
+*.log
+.playwright-mcp/
+
+
+# Roh-Duplikate & Großdateien
+img/ChatGPT*
+video/final-ad-original.mp4
+everyhand-*-final.png
