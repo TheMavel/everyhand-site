@@ -62,6 +62,7 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);font-size:1
 ::selection{background:var(--blue);color:#fff}
 .wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(20px,4vw,32px)}
 section{padding-block:clamp(76px,9vw,132px);position:relative}
+section[id]:not(#werbespot),.strip,#top{scroll-margin-top:84px}
 h1,h2,h3{font-family:var(--font-d);font-weight:600;letter-spacing:-0.02em;line-height:1.08;text-wrap:balance}
 h2{font-size:clamp(30px,4vw,46px);max-width:21ch}
 p{max-width:62ch}
@@ -117,7 +118,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(246,247,249,.82);backdro
 .media .tag{position:absolute;left:0;bottom:0;background:rgba(14,17,22,.85);color:#fff;font-family:var(--font-m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px 10px 14px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,0 100%);backdrop-filter:blur(4px)}
 /* video section (fullscreen) */
 .video-sec{position:relative;height:100svh;background:#000;overflow:hidden}
-.video-sec video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video-sec video{position:absolute;left:0;top:72px;width:100%;height:calc(100% - 72px);object-fit:contain}
+@media(max-width:780px){
+  .video-sec{height:auto;padding:88px 0 20px}
+  .video-sec video{position:static;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}
+}
 .v-dim{position:absolute;inset:0;background:#0E1116;opacity:0;transition:opacity .55s ease;pointer-events:none;z-index:2}
 .video-sec.dimmed .v-dim{opacity:.85}
 .video-sec .tag{position:absolute;left:0;bottom:0;z-index:3;background:rgba(14,17,22,.85);color:#fff;font-family:var(--font-m);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px 10px 14px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,0 100%);backdrop-filter:blur(4px)}
@@ -780,7 +785,7 @@ try{ if(localStorage.getItem("eh-lang")==="en") setLang("en"); }catch(e){}
   function setBtn(){ btn.querySelector("span").textContent = vid.muted ? L().on : L().off; }
   function tryPlay(){
     if(!inView) return;
-    vid.volume = 0.5;
+    vid.volume = 0.2;
     if(userGesture) vid.muted = false;
     vid.play().then(setBtn).catch(()=>{ vid.muted = true; vid.play().catch(()=>{}); setBtn(); });
   }
@@ -788,13 +793,13 @@ try{ if(localStorage.getItem("eh-lang")==="en") setLang("en"); }catch(e){}
     window.addEventListener(ev, ()=>{
       if(userGesture) return;
       userGesture = true;
-      if(inView && vid.muted){ vid.muted = false; vid.volume = 0.5; setBtn(); }
+      if(inView && vid.muted){ vid.muted = false; vid.volume = 0.2; setBtn(); }
     }, {once:true, capture:true})
   );
   btn.addEventListener("click", e=>{
     e.stopPropagation();
     vid.muted = !vid.muted;
-    if(!vid.muted) vid.volume = 0.5;
+    if(!vid.muted) vid.volume = 0.2;
     setBtn();
   });
   new IntersectionObserver(es=>{
@@ -834,7 +839,8 @@ try{ if(localStorage.getItem("eh-lang")==="en") setLang("en"); }catch(e){}
     if(snapLock) return;
     const r = sec.getBoundingClientRect(), vh = window.innerHeight;
     if(Math.abs(r.top) < 8) return;                                  /* sitzt schon */
-    const visible = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0)) / vh;
+    const denom = Math.max(1, Math.min(vh, r.height));
+    const visible = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0)) / denom;
     if(visible < 0.12 || visible > 0.97) return;                     /* weit weg oder fast exakt */
     if(visible >= 0.45) glide(sec);                                  /* mehrheitlich sichtbar -> rein */
     else glide(r.top > 0 ? sec.previousElementSibling : sec.nextElementSibling); /* sonst raus */
