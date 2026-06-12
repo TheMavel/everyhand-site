@@ -98,6 +98,21 @@ Regeln:
 - **FAQ:** `<details>`-Accordion, Plus-Zeichen in Blau, rotiert 45° bei offen.
 - **Reveal-Animation:** Elemente faden mit `translateY(26px) → 0` beim Scrollen ein (IntersectionObserver, threshold .12). Sonst KEINE Spielereien — keine Parallax-Orgien, keine Partikel.
 
+## 7b. Brand-Polish-Komponenten (Stand Juni 2026)
+
+Diese Elemente machen die Site als Everyhand erkennbar — sparsam, aber konsequent auf allen Seiten:
+
+- **Scroll-Progress:** 3px blauer Fortschrittsbalken ganz oben, rechte Kante angeschrägt (`clip-path`) — die Schräge begleitet das Lesen.
+- **Button-Sheen:** Primär-Buttons bekommen beim Hover einen einmaligen diagonalen Silber-Glanz (`::before`-Sweep) — „Robotik-Metall" in Bewegung. Gilt auch für `.btn-mini` auf Unterseiten.
+- **Hero-Intro:** Tagline → H1 → Sub → CTAs → Chips faden gestaffelt ein (`rise`-Keyframes, je +80ms). Einmalig beim Laden, kein Loop.
+- **Monogramm-Wasserzeichen:** riesiges EH-Mark in Silber bei ~5 % Opazität — oben rechts in der Hero, unten links in der dunklen Beratungs-Sektion. Unter 780px ausgeblendet.
+- **Sektionsnummern:** Eyebrows enden mit `/ 01` … `/ 07` (Mono, Silber) — technische Dramaturgie über die Seite.
+- **Gestaffelte Reveals:** Grid-Kinder (Layers, Offers, Stats, Roadmap) erscheinen mit +90ms-Versatz pro Spalte.
+- **Footer-Wortmarke:** „EVERYHAND" als Outline-Typo (transparent, 1px Stroke `#2A313B`) über der Copyright-Zeile — leiser Marken-Schlussakkord.
+- **Bild-Zoom:** `.media`-Bilder skalieren beim Hover auf 1.035 (0.9s, weiche Kurve).
+- **Unterseiten:** dunkler Ink-Footer mit Claim `AI · Robots · Real Impact`, „Pilot anfragen"-Mini-CTA im Header.
+- **Respekt:** `prefers-reduced-motion` deaktiviert sämtliche Animationen; `:focus-visible` mit blauem Ring.
+
 ## 8. Bildwelt
 
 (Details + fertige Prompts: `PROMPTS.md`)

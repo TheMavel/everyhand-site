@@ -289,6 +289,41 @@ footer a:hover{color:#fff}
 .f-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:12.5px;color:#6E7682}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
+/* ===== Brand-Polish: Schraege als Erlebnis ===== */
+#scrollbar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--blue-bright));z-index:60;clip-path:polygon(0 0,100% 0,calc(100% - 4px) 100%,0 100%);transition:width .08s linear}
+header{transition:box-shadow .3s ease}
+header.scrolled{box-shadow:0 10px 30px -18px rgba(14,17,22,.28)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::before{content:"";position:absolute;top:0;left:-70%;width:42%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.38),transparent);transition:left .5s ease;pointer-events:none}
+.btn-primary:hover::before{left:130%}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero .tagline,.hero h1,.hero .sub,.hero .btn-row,.hero-chips{animation:rise .7s ease backwards}
+.hero h1{animation-delay:.08s}.hero .sub{animation-delay:.16s}.hero .btn-row{animation-delay:.24s}.hero-chips{animation-delay:.32s}
+.hero .media{animation:rise .8s ease .18s backwards}
+.hero-mark{position:absolute;right:-7%;top:-14%;width:52%;opacity:.05;pointer-events:none}
+.hero-mark svg{width:100%;height:auto}
+.chip{transition:.22s}
+.chip:hover{border-color:var(--blue);color:var(--blue);transform:skewX(var(--skew)) translateY(-2px)}
+.media img{transition:transform .9s cubic-bezier(.2,.6,.2,1)}
+.media:hover img{transform:scale(1.035)}
+.offer::after{content:"";position:absolute;top:0;left:0;width:46px;height:5px;background:var(--blue);transform:skewX(var(--shear)) translateX(-6px);opacity:0;transition:.25s}
+.offer:hover::after,.offer.hot::after{opacity:1}
+.eyebrow .eno{color:var(--silver-3);font-weight:400}
+.eyebrow .eno::before{content:"/ "}
+.layers .layer:nth-child(2),.offers .offer:nth-child(2),.road .mile:nth-child(2),.strip .stat:nth-child(2){transition-delay:.09s}
+.layers .layer:nth-child(3),.offers .offer:nth-child(3),.road .mile:nth-child(3),.strip .stat:nth-child(3){transition-delay:.18s}
+.layers .layer:nth-child(4),.offers .offer:nth-child(4),.road .mile:nth-child(4),.strip .stat:nth-child(4){transition-delay:.27s}
+.consult .bg-grid{background-image:linear-gradient(#1A2029 1px,transparent 1px),linear-gradient(90deg,#1A2029 1px,transparent 1px);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 75% 8%,rgba(0,0,0,.65),transparent 70%);mask-image:radial-gradient(ellipse 80% 60% at 75% 8%,rgba(0,0,0,.65),transparent 70%)}
+.consult-mark{position:absolute;left:-5%;bottom:-9%;width:36%;opacity:.045;pointer-events:none}
+.consult-mark svg{width:100%;height:auto}
+.f-mark{font-family:var(--font-d);font-weight:700;letter-spacing:.16em;font-size:clamp(40px,8.6vw,124px);line-height:1;color:transparent;-webkit-text-stroke:1px #2A313B;user-select:none;margin:52px 0 6px;white-space:nowrap;overflow:hidden}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue-bright);outline-offset:3px;border-radius:4px}
+@media(max-width:780px){.hero-mark,.consult-mark{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
 @media(max-width:1020px){
   .layers,.offers{grid-template-columns:1fr 1fr}
   .road{grid-template-columns:1fr 1fr;gap:36px 18px}
@@ -332,6 +367,7 @@ footer a:hover{color:#fff}
 </svg>
 
 <!-- ======================= HEADER ======================= -->
+<div id="scrollbar" aria-hidden="true"></div>
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Everyhand Startseite">
@@ -357,6 +393,7 @@ footer a:hover{color:#fff}
 <!-- ======================= HERO ======================= -->
 <section class="hero" id="hero">
   <div class="bg-grid"></div>
+  <div class="hero-mark" aria-hidden="true"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg></div>
   <div class="wrap hero-grid">
     <div>
       <div class="tagline" data-i18n="hero.tag">AI · Robots · Real Impact</div>
@@ -406,7 +443,7 @@ footer a:hover{color:#fff}
 <section class="human" id="menschen">
   <div class="wrap split">
     <div class="rv">
-      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="hum.eye">Mensch im Mittelpunkt</span></div>
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="hum.eye">Mensch im Mittelpunkt</span><span class="eno">01</span></div>
       <h2 data-i18n="hum.h2">Wir ersetzen keine Menschen. Wir geben ihnen Zeit zurück.</h2>
       <p class="lead" style="margin-top:20px;color:var(--slate)" data-i18n="hum.p1">Dem deutschen Handel fehlen die Hände — nicht die Aufgaben. Unsere Roboter übernehmen die hundertste Wegbeschreibung und das Zählen an der Tür, damit Ihr Team das tut, was nur Menschen können: beraten, zuhören, Probleme lösen.</p>
       <p style="margin-top:16px;color:var(--slate);font-size:15.5px" data-i18n="hum.p2">Und die Geschichte der Automatisierung zeigt (Jevons-Paradox): Wird eine Leistung günstiger und besser, steigt die Nachfrage nach ihr — und mit ihr entstehen neue Aufgaben und Berufe rund um Betrieb, Daten und Kundenerlebnis.</p>
@@ -435,7 +472,7 @@ footer a:hover{color:#fff}
 <section id="system">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="sys.eye">Das System</span></div>
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="sys.eye">Das System</span><span class="eno">02</span></div>
       <h2 data-i18n="sys.h2">Vier Ebenen. Ein robot-ready Standort.</h2>
       <p class="lead" data-i18n="sys.lead">Ein Roboter allein nützt nichts — er braucht einen Ort, der ihn versteht. Wir liefern die Intelligenz unter der Maschine: Die ersten drei Ebenen sind das Produkt, die vierte ist die austauschbare Oberfläche.</p>
     </div>
@@ -452,7 +489,7 @@ footer a:hover{color:#fff}
 <section id="flotte" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="fl.eye">Die Flotte</span></div>
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="fl.eye">Die Flotte</span><span class="eno">03</span></div>
       <h2 data-i18n="fl.h2">Echte Roboter. Echte Aufgaben.</h2>
       <p class="lead" data-i18n="fl.lead">Keine fahrenden Tablets: Wir setzen auf Geräte mit Präsenz und Wirkung — jedes mit klarer Rolle und belegten Use Cases.</p>
     </div>
@@ -546,7 +583,7 @@ footer a:hover{color:#fff}
 <section class="offers-bg" id="angebote">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="of.eye">Angebote &amp; Preise</span></div>
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="of.eye">Angebote &amp; Preise</span><span class="eno">04</span></div>
       <h2 data-i18n="of.h2">Testbar statt Großinvestition.</h2>
       <p class="lead" data-i18n="of.lead">Jedes Projekt beginnt mit klaren Erfolgskriterien und einem festen Preis. Ein Folgeabo gibt es nur, wenn die Daten den Nutzen belegen — das ist unser Pricing-Grundsatz.</p>
     </div>
@@ -588,7 +625,7 @@ footer a:hover{color:#fff}
 <section id="roadmap">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="rm.eye">Roadmap</span></div>
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="rm.eye">Roadmap</span><span class="eno">05</span></div>
       <h2 data-i18n="rm.h2">Wohin wir gehen — Schritt für Schritt.</h2>
       <p class="lead" data-i18n="rm.lead">Wir wachsen bewusst entlang harter Meilensteine statt mit großen Versprechen. Jede Phase startet erst, wenn die vorige ihre Kennzahlen liefert.</p>
     </div>
@@ -619,9 +656,11 @@ footer a:hover{color:#fff}
 
 <!-- ======================= PILOT / BERATUNG ======================= -->
 <section class="consult" id="pilot">
+  <div class="bg-grid"></div>
+  <div class="consult-mark" aria-hidden="true"><svg viewBox="0 0 740 472" fill="url(#g-silver)"><use href="#eh-mark"/></svg></div>
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="ct.eye">Beratung &amp; Pilot</span></div>
+      <div class="eyebrow"><span class="bars"><i></i><i></i></span><span data-i18n="ct.eye">Beratung &amp; Pilot</span><span class="eno">06</span></div>
       <h2 data-i18n="ct.h2">Vier Schritte zum robot-ready Standort.</h2>
       <p class="lead" data-i18n="ct.lead">Kein Risiko, keine Vorab-Investition in Hardware: Sie zahlen für Erkenntnis und Ergebnis — Schritt für Schritt.</p>
     </div>
@@ -665,7 +704,7 @@ footer a:hover{color:#fff}
 <section id="faq">
   <div class="wrap">
     <div class="sec-head rv" style="text-align:center">
-      <div class="eyebrow" style="justify-content:center"><span class="bars"><i></i><i></i></span><span>FAQ</span></div>
+      <div class="eyebrow" style="justify-content:center"><span class="bars"><i></i><i></i></span><span>FAQ</span><span class="eno">07</span></div>
       <h2 style="margin-inline:auto" data-i18n="fq.h2">Die ehrlichen Antworten.</h2>
     </div>
     <div class="faq rv">
@@ -733,6 +772,7 @@ footer a:hover{color:#fff}
         </ul>
       </div>
     </div>
+    <div class="f-mark" aria-hidden="true">EVERYHAND</div>
     <div class="f-bottom">
       <span data-i18n="ft.copy">© 2026 Everyhand GmbH i. Gr. · Düsseldorf / Köln</span>
       <span data-i18n="ft.note">Einsatz-Szenen teilweise als Konzept-Visualisierung dargestellt.</span>
@@ -931,6 +971,17 @@ try{ if(localStorage.getItem("eh-lang")==="en") setLang("en"); }catch(e){}
   else {
     let st; window.addEventListener("scroll", ()=>{ clearTimeout(st); st = setTimeout(settle, 160); }, {passive:true});
   }
+})();
+
+/* ===== scroll progress + header shadow ===== */
+(function(){
+  const pb = document.getElementById("scrollbar"), hd = document.querySelector("header");
+  function upd(){
+    const h = document.documentElement;
+    pb.style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) * 100) + "%";
+    hd.classList.toggle("scrolled", h.scrollTop > 8);
+  }
+  window.addEventListener("scroll", upd, {passive:true}); upd();
 })();
 
 /* ===== reveal on scroll ===== */
