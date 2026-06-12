@@ -113,6 +113,15 @@ Diese Elemente machen die Site als Everyhand erkennbar — sparsam, aber konsequ
 - **Unterseiten:** dunkler Ink-Footer mit Claim `AI · Robots · Real Impact`, „Pilot anfragen"-Mini-CTA im Header.
 - **Respekt:** `prefers-reduced-motion` deaktiviert sämtliche Animationen; `:focus-visible` mit blauem Ring.
 
+### Layout-Grundsätze (Aufräum-Pass Juni 2026)
+
+- **Ein Fokus pro Sektion:** Die Hero endet mit einer ruhigen Mono-Zeile (Humanoide · Roboterhunde · Drohnen · Sensorik & KI) statt Chip-Boxen — nichts darf wie ein Button aussehen, das keiner ist.
+- **Zahlen bekommen ein eigenes Band:** Die drei Markt-Facts stehen als 3-Spalten-Zahlenband UNTER der Mensch-&-Roboter-Sektion, nicht in der Spalte gestapelt. Muster wiederverwendbar: Text-Bild-Split oben, Beleg-Zahlen darunter.
+- **Werbespot-Bühne (bewusstes Feature, NICHT entfernen):** Die Video-Sektion ist 100svh mit Wheel-Intent-Snapping — ein Scroll-Tick zieht den Spot sauber in den Vollbild-Fokus, einer wieder raus. Das bringt die Leute aufs Video. Dazu: Autoplay/Pause + Dimmen per IntersectionObserver, Sound erst nach Nutzergeste.
+- **Footer: 4 Spalten max.** Impressum/Datenschutz leben in der Schlusszeile, nicht als eigene Spalte.
+- **Hairline-Disziplin:** Bei Grid-Umbrüchen (Stats 4→2→1) nie doppelte Borders — erste Zeile ohne `border-top`.
+- **Übersichtsseiten:** Karten-Grids 2-spaltig ab 880px, erste Karte als Featured über volle Breite (Ratgeber).
+
 ## 8. Bildwelt
 
 (Details + fertige Prompts: `PROMPTS.md`)
@@ -130,6 +139,19 @@ Diese Elemente machen die Site als Everyhand erkennbar — sparsam, aber konsequ
 - Ehrlichkeit als Stilmittel: Risiken benennen („nur 35–40 % erfüllen die Erwartung — genau deshalb…").
 - Jobs-Botschaft immer mitführen: Entlastung statt Ersatz; Fachberatung bleibt beim Menschen.
 - Verbotene Floskeln: „revolutionär", „disruptiv", „die Zukunft ist jetzt", „KI-gestützte Synergien".
+
+### Die zwei Headline-Patterns (konsequent einsetzen)
+
+1. **Zwei-Takt** — zwei kurze Sätze, der zweite dreht oder steigert:
+   „Eine helfende Hand. Überall." · „Echte Roboter. Echte Aufgaben." · „Erst der Beweis. Dann das Abo." · „Der Roboter ist schnell gemietet. Der Auftritt will geplant sein."
+2. **X statt Y** — Haltung in drei Wörtern:
+   „Entlastung statt Ersatz" · „Testbar statt Großinvestition" · „Meilensteine statt Versprechen" · „Zahlen statt Adjektive".
+
+Weitere Voice-Regeln:
+- **Spannung vor Erklärung:** Der erste Satz eines Leads benennt das Problem oder bricht eine Erwartung („Einen Roboter zu kaufen ist leicht geworden. Ihn sinnvoll einzusetzen nicht."). Erst danach kommt, was wir tun.
+- **Ehrlichkeit als Hook:** Risiken und Grenzen aktiv aussprechen — „endet mit der Auswertung, nicht mit einem Vertrag", „auch wenn die Antwort ‚noch nicht' lautet". Das ist unser stärkstes Differenzierungsmerkmal.
+- **CTAs benennen das Objekt:** „Analyse anfragen", „Pilot-Platz anfragen", „Concierge anfragen" — nie dreimal dasselbe „Anfragen".
+- **Wiederkehrende Versprechen sind gewollt** (Message-Dreiklang): robot-ready · Erstgespräch→Datenbeweis · Entlastung statt Ersatz. Diese drei dürfen sich über die Seite wiederholen — alles andere nicht.
 
 ## 10. Don'ts (Kurzliste)
 
